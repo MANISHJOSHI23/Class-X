@@ -1,0 +1,2078 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Refraction Class_X PPT - Manish Joshi</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/theme/black.min.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <style>
+      #controls-container {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          opacity: 0.3;
+          transition: opacity 0.3s;
+      }
+
+      #controls-container:hover,
+      #controls-container.active {
+          opacity: 1;
+      }
+
+      .control-btn {
+          padding: 12px;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+          font-size: 20px;
+      }
+
+      .control-btn:hover {
+          background: rgba(0, 0, 0, 0.8);
+      }
+
+      #stopwatch-display {
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          padding: 12px 20px;
+          border-radius: 5px;
+          font-family: monospace;
+          font-size: 24px;
+          display: none;
+      }
+
+      #clock-container {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          opacity: 0.3;
+          transition: opacity 0.3s;
+      }
+
+      #clock-container:hover,
+      #clock-container.active {
+          opacity: 1;
+      }
+
+      #clock-btn {
+          padding: 12px;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+          font-size: 20px;
+      }
+
+      #clock-display {
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          padding: 12px 20px;
+          border-radius: 5px;
+          font-family: monospace;
+          font-size: 24px;
+          display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_147f96e235445c21cf7d8a15ef7d60547b775d69757b8e695f6e9ccd944fcbe8.mp4"
+data-background-video-muteddata-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_7b4ad4c7d3bd6e69329558ebe4d03d784c468709a036390f4effe4c417da6a36.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_ef956e37a92241cf98dd8557619a896a76fc91798fcba2dbafa654e6d4c49a27.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_94b96fc8254aee0fd327f335634454b12b7d49e393aced4f6530991aeb21bc9c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_c5e9ecc130ad258221c08b852aee5530ad13243be3d9c491aaacb13658816b11.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_96e1862e864cc023897adae0511b61d414466b16c1f55b626e6b20008ed6e498.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_469ec320b61763689688bfdae6645244083409d3020b8d500dc0b36d5833747b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_d88c919f8d0c1513bb3d54316f4e3ecebc38c41498ea6a8cb1cdf61f70cd1aa4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_bb800b86bbcfce9a3130f827c7cb698187191cf1a58c3856270985c4b1332e35.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_0c6da87081de385710d6307b685543b5645ab439005065f437063b6aa16e6524.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_0562be4b4610c8d4219cd2288b50dcaa1c7dec665c2a2f4f65914a99d66681c3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_95e95ff3cf30f85f63aa215333d63b7f619cfadbe389270251808d58c2e62df6.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_617ec6170e1ab605ffcac79e17ca3201d9c69a3b9865e68c65d6e90043e3709a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s00_b8c3d5ca289747f38fd5278dfae593a24098b4719abeb26f09f903c871145fe2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_ac0899d374df8f9c50609f14bc060ab4e22cb8593e587266112fec9257c75a26.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_2693a5f3e17c669d40c221abeb24c09118d562896cacf06aa9d0128ba31a057c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_e1ba5dc6d62c7b633eaa57213baa2999647e04a84e3ba0980c56a797b0f020b4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_d7c556d579cb44d90337d9da30a5b526f73d61e65c119171ff349c7e565bd886.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_2e7c55f7314c4d6df9d8c875e75201fd13607c4a017d48d7a22b15a71580e8cb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_12b8ff07fd0d460c1a77fcdd05328f7638d6fe526c2458c4509d8d65581f69a3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_b2326d3c7e43dc62b34239de50bfcb637866d8a2d621ce16e5ed05b2d48c280e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_d3723b5013b9d1aff4225fb6320d7a22302e5784ce49e7867afe9379d015dc48.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_a97696df4b9e819fd5c13eb5ddecb94dbf089c5fbd35a0e9dafb28de29a661c1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s01_4a6d5c5bc61c5906e99d9a19f59f3909cd15850a4346eab688d123004b05fcc8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_2d353b4afefef1e2588a7754d5b6f80d99527b705af68711b4f0490892e8bd87.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_968a9a7d8b442ea208108688f9d147f89dfb4afcde6e80334379e34252979214.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_d7fd6cc1693d534e794800993985ea3eb520ff6af62b2e2e2a572028b5defeca.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_a95bc5df17dae9b6c45727742f81bd797945563202da1e7cceb11bc8765e1d79.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_11bf79108b7e8dcf1027a5c7cdb757a4ccc4a03e80f43000862a72299b43cbcb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_66756aeb3705772da54c862d79b98727f353a6176320e045499f6acf1a378b62.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_522e21e26bd6972f081eae0828de0f05b63a7f65d27419b01cf850c73e3bd899.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_3c87a955f0c09a7050cf8171be779ae13b70fccd06cd4451516e0e28de8bf40d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s02_b70f2c9a15e029a200b520d333a4585af3fc1e996d5279334fddbb3190dd11fc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_537fc56885868f09636f90a9aadfc42527485835c8f67ea48bfbc81d3707b777.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_4ac3d75f165d7aa2d00fe747729e03830847dd46c9ffbd8ea6090eb4b03f9f2a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_4046e1b6bd13a52fea06f12b52f543b6e2427abbeca384015fca5c9f939ed730.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_51377b8341b95926ca1ef972e3409c1c3c50d1d83d2bdf5ba7cb7d5bb59bdaf5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_5a55235e1fa7e4d8a600fd3ad8a320e878252ea31c41ea8dec696961ee50d868.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_868de4a24679179b5628fef25c73c8cc2ce06df3b0ac99760a04d584ab0cda81.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_23387bd930acf1e08370a89d39359a36cef70d661a5ed028160377136d041825.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_edfe8ae748e41b60ad57cb26bf4b2d1d7637327b1482050e7be0dc576f125629.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_29e140caed50204dd0b830069dd442b0dca426f2cb726183eca43c2b16e7a923.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_70443c62ab556b7e8a76ef90f6ece2803ee091aed2e4a0de03d4405292c8d39d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_7b6db3a45057d66a3f4857594ad774384dc33d00678e14fb0fb4b4c55faaddcf.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_029f3696c103738f3c371d49fc6df88eb1095a5f9e114537c4d3515e77e63d66.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_4c5a0bdfdd9d5ffe87584ebbd95f7e4c3257fbaa54fa71a20273c09dd85103ce.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_7d9520e2a325c5069693195d7cff12bc1f99a099a3c045aab3fd5821d4a1ecb1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_755df0c74c9217e4ef7c2bc1fe226d0a3aee46e54d5e0e2a2b6a4facf8fecbf3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_cf000d0b3ec434333f0a8cd92c22dbfb12194400a4fb741850173b5e8ada50f8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s03_f1b08710734fa912d2c5e108700a3e3dc7ec0094ed568111b573a6f4cab8d4e2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_537fc56885868f09636f90a9aadfc42527485835c8f67ea48bfbc81d3707b777.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_4ac3d75f165d7aa2d00fe747729e03830847dd46c9ffbd8ea6090eb4b03f9f2a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_4046e1b6bd13a52fea06f12b52f543b6e2427abbeca384015fca5c9f939ed730.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_51377b8341b95926ca1ef972e3409c1c3c50d1d83d2bdf5ba7cb7d5bb59bdaf5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_8a28c362c7ed94a59e1f1cb8a86f514fc54e1bd2b73c233577525def4d19802f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_55b023d435e452da6197dc0d23694f60ace3c2aee9770bde8024583e98cd9182.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_dcdcb946ca9c05cdbb092ee07558ee9c13d10d84ca4dd0840da324834be4cb46.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_b1bec2d3c499dddaa60c8c4eb5bec8f0611ccc78877658e1adc91b984219b53b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_a041244a46bdf4cffc6ea14390fbd78b9371098cd38ae63dcbb83d5c5c9413d4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_fcec19eaf987a3be7309cfcc930dd53e34393d05c32c087c0604dc88f4aef69b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_d348ad4fe72abf5dd46eeafe2a34af3d2d5c95ca937f5314939eb2cd7c0b175c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_67e3ef6583efb382e138485d06f2e4aa9df3d05f815d4b692c3f6a427e39fbe5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_9016dd74121236e7440f2012e0fc6f44975808d008ac72a25f9c2dedff72a452.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_fb9d28911178796e53efabfa85d399689eae69247d18f4bd59408f42582d40a7.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_0df19641637ceccb28089ef42c634b4e50f626cbc6050e120df422f43825d0c9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_995f8ed7c26c529cd6003b73bbaf7f828b3b5eb400c343b6d0d9a9fa586899c5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s04_8d3af57c69a0794b7a191db293f8c37d91bedd0b548dd954db2c648e3208a18e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_0d1a0c939e276b5e9d4f3920df3ae8d0f6e7a23e54276e82299d54c0937e0533.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_66f11c648a3ac8a9ac5e5fb69ad0af7c2f7192ee7a64661a8995af1d0f0c114b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_5a90756b933dd7e6d5ceef1e49ebfe3c1b98df32a6e103092b70c4a1c7e74878.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_3d12e6e9c6d41602882a56ac024f54b8de8f269060e616eb85b379c5ea649f21.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_f1f599229c9ad4f56bdc9f63149ace61e97679d78053fb02442e90a1fed46034.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_99d5ae7e8147c842432b4ebc5707b3ddc1cd46e1418f237d00106463ca778c80.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_c6e95138601a6d212229597ebe4e040b712fe5b647466f74aec807b4ea7e30d9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_ec628c317cbe12af0780c4385952384ff19037a65a2eac1500a236532cf5e1e2.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_ef218e52d62e4f0277229edd785f61ded606033ed18385cbbfadfce8312ed62a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_d8b75e431dd20ba71fdf05129f12b4ba969df6959a5f344d25231848b34d0fad.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_402b21c9075015f7474a13b3bf82f0f83b185726616f1a9fcba9bb053f6f6e4f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_ebc4e29faa2302d46b3b89ba356bc35ebbcca0e16872306bb73102a5e3656b63.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_22963fe2843f445d92ba404f72d4ae853fe5ba60e68229857616bcbbb1196ac0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_2b66b940a9712214ff30cc4385831b5efcafbac63074d366db5b9fbfb8314a3d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_fa764c8eae06e3e3b3967d261aa2b1a5c05db213b4b4c2dbf75e29bb77852a74.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_832f879cc941c86ba194698d8de5ab5d23b2df6fda5a2b9e8a4e95fe9b5ce40a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_92bb4a466f8bcce8ba7a558c477473e1c5e2f291e746240803499b09f07d1e72.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_cbc1a2adc681daf533804db32642a5c8c70706b3d0c760782d7d9bb47b229fd7.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_1290474b2bece2edd5606a1c84388eaba1a70c9cb2d7afdf122332742a81cc65.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s05_7158d8afc5b96aba1d79f2971ed04e4712ccc6072c981efd758d622ac1d6dc8f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_9ecef44e1f75adf4696790feebbd6738f8219a3a1cbd0fed9a58ef36dda8e945.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_ee97f4b0788a15248fd337456ee8ae583803b6b957a5d9665c3811f2902bb291.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_0da0e2d0964b1ca742e1ac0af2ea56ce1b323912550fe84d7faea5633db2dd3a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_5d41fa5475b7ea9842fcf4cf2e187e99ecf78504310bc8e2e50645760c948a51.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_32072ae397477a5ee4dcf352abb2fe5d888eb7e2af7e2b68abfacf6dd53cc2b1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_676857d86fc7bcbf2f840d7831d13c04828194efd555c1a3d7d772d82426a64a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_946baffe07f0be319b53f568269cfd5fb1478112298b16de4af01e6e790d1e14.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_7cd5659324c4c1ea4809ae45f01b0f4f88223db06505cab018d30ad56ff01d25.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s06_9a1be6c070869494d7e56fe540777aeba71f52b03f0c14105845a282ac1ba23a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_9885f6f35700bc9b6d79fb7b5f4b7dda4f242a80b5323b9650f9e99dad619199.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_b50bb52da662ff603c83a01d4fcc15c8e3fbb9e367d5c36c5bbedac4d1ac3da3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_fc57df03a49db647f2fde0d81b8509f0009654cd86bb59fbdae4d15231ed3f16.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_3059fc5f9ed0e8d554168ef0cb77ac22192405e6faae33f50908e2260e081a8a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_3f499e029126e6c2ab3fc24136d65237661296e0552d7a70aeb3ef8e22c72311.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_b63a330b10384d1a2ae1f2652bf767ea007127ac30394d8b13cd14a68ae0a8db.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_a7bf9eff79657b313fa1b6bf8dfdd0faa96b47123372898aa1c6069ce7763b70.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_25def0f3c0be0cec5d8b82f80c83f798c273e21f6326650ff3beda4847317ece.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_527b8b815106710443aa3c5c012a47ddc189826a6c2c077bc78d24d4b721b173.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_1cfd457ca7d69eaff6ff224141576c3cb2b443266205ca65fed61f0f7f5b4975.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_cefe0a5eb3a3672158a942c00108c521b943638eaa4dce16dac8b3725cf9c372.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_00feebc18622cea12c834b6aac10a375973f8cb1660d46e460930f441d820331.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_365228c11ad6754c0a86daaa0074b8e368ab59f0dd656e1fd574d1726fbac12a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_dad78d3f945ba3e518da9055aa18a2936d9224535f7c6d3124e154e5f04fb8cc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_176d40b2ade1505b8959fb821d08a561f06d9b03948cd1e68c69ad06154fa979.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_d7b3042bc3c1f62a9ab188540a816b0606c27ade65d3c90dcedd9a9bec18b1b2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_83bc68356c5930f21f80511e2a107d21e55286bc359629fa861850e8afffb31f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_f42079b6e9c53507ef1f6746ea07114c971008c9e6d5f4a27631103fee0770b0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_cf609330565262affdd2b3b0ac6662fde1e929cfb6cfc33e2d37fb9ed09f8632.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_3ecd7b186bcd5fb909aa1454ce9b59ee3d76483e8af27ce8292792f9f91f438b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_532537d6b5c3419dcac1d4b30b77a9589d9ca05254c475236a37170d40ec6f78.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_0771adb01752f8aa8eeb51a44d4c4ea202805edd979d66fe1a59b7ea40dd7354.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_dc8f315cd1e16dd4c32556c489f99b3420cc4614c0e5d0b7852724a582a32fcc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_4ca268e6564ec78d382ca871acdfceb7c91eaac559b8c5e8cf03358c311b329c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_eba0e2d2cc9774f4d502c2c7b9503b7e74275ab3fe0e66f61c5357b425472bca.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_a9cdea2a8146b45bcc9eb01e477a848a2564aee7ef8ce091fb5ea1db8c6c578a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_27b36df853f615a9bb690cc2a0cb72f6e49b155f1c01f72b7058cf63660021a8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_de45f484629693006adfb5c8a7038d3cfc409843b024409668d498923ad8dc0a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_3379f86d5421df2efde8b1982aca26e104d426093b1f1cedb01ef9607e29eb44.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_2a1573825ccc8733fc5b84b586e3b1c2e40675d25965515ae43cb055e45ec2c2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_8adc1b98a8897687273ae57ee872af696d9467d797a8adae356e5009345501d9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_b19df8004931d222902fdcd00235a550e56e7472b54a9ec5eb0a2344ce94e607.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_5b358018fc8ec5c7041495f4d8944958d957b2a1eec9a15ceede6e3caefa599a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_0fefe847fa4a0132909febcf6f7859f05a2b096cbf360b72acd1b99bdf99490d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_223b44361c4ef5d7d1deb1a097b3b376507fd3b4984e6acaeb103f0aed25468b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_3149d99e8fdaaafa278e9f4bf2017e064badc502ed96113c7863da428bfebe08.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_cc5de459f366035806f7addce3ea62bafe760da4f6248e355452c575400081c3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_1e4fe6240b550c7181ee2c979b4d95a398d08ee33d622d51306e257bef2f736a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_639f3beda1286debf248e754ae4ad6432be1215303d72ea8d03c47ba2f2b6fca.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_272d3f811f01a86068b5edf8fb55ef0a4c59a667b9f437366dee3411a61f54ac.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_a8c94f47ca735b9b01f732b5a430bd14c890239d388be00ffa50114e162fa317.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_cf1b5e19cc07b2a8276406a6250771770a94fad78b12cc6390b5b96e8ca17ea5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_bd8db8f6421e317ec40006df2edd350eddc14d9bcc3f4fd10a56c4e46a7f41ed.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_5cef439ec395b10dd185a0cc1671b91d717b9f1a00c57b97a09fbee35bf8b0c9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_a7ee7a3c58a8bc5e87a8cfa234e090ce37fa2fc95fff6a30f4dc17c7a4276ce3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_b6e220272e079ee95ba0435b5b15ba90511dbceb167c4bfe3752777a87a6b943.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_4585ab1b6a8ecaaec24761f7b90e0e8f1503b13d2de61aa4f87cefb736fddd82.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_8a39afeddf7a75bfc2f8a2065b86b8726daf7874fb39715c8f30d42e2a89e568.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_71cd9ddc0c81ae482fb65b28e3fec3b07214eb3b728f8e1c95bf1985bc8ddb4e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_270767e033fc8b63dfb1d0f5016169bb84c44045ce4c7c78f8d45730c8759971.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_20fb55f3eaaa6e6b11b02706941732e5fde839cb8ae7ce89e33d16a3f2c9f627.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_b22d92dcee187d8996f5c39acd541c8d004a08f7f6f7581c71acae0dc7562390.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s07_f6ff72085cd0fe190434ff2c504c833bfc297031a2f9fb208a398eb45e515ac8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_0477b136dc1bad58a920f9c74ff642e3f2f1b541809f0786f02f93712019b12b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_34a67b6e93ba38a3c16f2594e892eb3d511efdf338039057701c309df82103f0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_3dcd268f5845682157cb3467cb626728f75e0f68adbd8a5d3fc586b1900ca923.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_8514731e867bec6ca293154c5febda479c066e74ae0339938aeb64370ec2ee79.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_6588e3b0ffd1614cabad5806cf18d6bc98b21a3d7ed278a55dbb8a556c519bd4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_35b0d9cbded6a226c1d989021324104f14afea6cde77f2ec4225b3807949b40f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_a1a4709938ff039e6c8ab91b444bcaf65b428df8d5fb954c0d5052d4d36227ce.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_5544d6b065349c8962a857b4b5b274e7d72acf1ce79a8657f0f1d36ccb6f3f1f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_0ec29523fec42db2d635429310d727b7d82b78bada623f56437a8d402e41e562.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_60b859690482f187568aaded75e264cc7b16eb7f8e37f77381dc6437cf391f51.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_c8a43ee0cb176aabd68450d8f912d39451e114134e5a0fe03b6a98b965396d51.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_d018e8c88c20c1433c789658003fb6279371a7bdfaef30771b776e49322f7398.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_579a942f5e66aeaac624f82be11bb45a3b3ae340f9ce8add0c9bd89a152bfc14.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s08_7812bd71bbf20d4c5cbb2f2f8b8171069800e8706d5b1af8e6edaf9f1d4d163c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5e1ef759f028a711ca66fd9ef5696a1fee4b52dfd03b9f6ec609e3494416856c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_74530cadbb491af0be98b9a90d029c478eff2ba4c758c054e6be5a83ff0472ae.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5ad673b72988b2ecbf6dcff951c0e17fa46088cdfedea9094b58ffac5375684a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_81eaa4c6b9fc6d8678e5c23dbdd684f1a980cd97258ebe136fdc71be082e0ace.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_61996be241db33d791790395348650aac04c7845645828016e3f01798c0f14ea.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_99b758476b6150eafa91cd345c2e43cf00afb853be07fa1a94152a88ac10ba66.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_f1a49e2d6317054e7d47c1a27fb4207c5438693efc0eaabc31553400bf38d976.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_06ebce423e24a12ef789572083e77cc402948ae4cfadb71d5cb7fb1ceae968d8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7cd8baab801171c313ecb14a0ceb80b0c4eb2b7daea30ddb3b52085a6217d41b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_2dbdcc33f4af57fd4fc7cb9888d112b4a1dd9986de116c3ee10c7555c0e4e5d2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_9fb827bd4d5aa29a7775a6ff95b4eadbab0229a8e3662ba826f2b9bf5f984ffb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_dec519e7ff0d4353dbc01ab22e75cf15b6bc1881924676bc8938cb259b356f3d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_151c347ce0f5583b522ed7c7701727356514dd2f2b79aafb197c7474e96eeaf3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7a000dfb08ac7c76c4423492c1c8c9f80bf7f58a64c614aa9815a31752107cd2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_eb0980bc2e10a2a43431d9b36b41797a228e6cd9c14df1cee0098927a11426ef.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_6dfc3c8573273e6c91b2841352af8414dd999bafa5d9a7f3f346b15d898ce62a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_947de48efeeea7dfda6bb5704ba80978890650f146c9e17c1fc06dcae68adc5d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_d1f74ce2334c8fa73833c9d32588f9f7ee1c532b186c8ffddc532bbdd6cb0358.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_d492efae3e78aba48b7cb1cf2588c18cdff4a2601fa0bd5da9f75d04ca2201aa.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_fca2374ef0fa00a127a7fc8d055632adca37f9cbeef6a0eb0d85f1400d434a54.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_ebdbd99ceaa7000adbc1b0ae8ce49c16ea9f760ce5ba1a8750947d99680a6f0b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_870e40dd744e04a65fb1f0332ee55d397ba57b80aafed18f6f5eb1edc54ae80d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_a06cca2fa1d54d10d4ba14fa415ae21700271046c0bc0d907e29e6990cda47ad.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_ff3377eb2cff43abae855492ff504ce26f282362daaa6b95d1f9251cfce4eb49.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_8fdeeaaede0a399acb5e2dd892600b7d1450c0205bc506bd9b7ab02e9c2feccb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_6706de2689e3089cb4c82f401597ff65b9f3075907c39386dad18bdf7b6a2414.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_820f92f1c18775a2deef0b631208da23db2f42bb630f31a6925cbf1c27efc373.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_b7e8e013ce2308d0dad4ab9201cbd4a5041fcd8617c7a64c2ed4061ca41ac1ef.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_1331658d5e4f194723b322b8b6bcc0eb4395133f55e34628ac542b8c0a364ffb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_0366bd065f2558ca417235883678066bed3e7278513c834e969d0b08391952fe.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_720901eb40eeb068e7dff314404ff2095b29c1da710174e9125c446c92e96714.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_6e48a01d5fa999a4cf73d28dd833bac043a44829c92ce927c2dc5802e667b1c2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_ebae67a4145a2baaf81d61048edb44a4a5c0ab1c41d8178fa825d3a01a1427b1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_15d12d4be40b4a949b1aa17a7d72e1eeb1dcd4ff73acfeb55076f4ff8f6440ff.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_259efd2ef6616a73a0681fe30fb0bdeea3529ee321ae80bf377ac61ed772a423.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_14e3a31edd13d12cb4cd49b5fb8545781e8babf8cc72e24986496c5b4f5fbdbd.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7e73a8870203792b0695b9775f61bea946f6bf124886637758a4374fd9159730.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5faadc9d8a44522cac68274b2c580eaf909112c3e3bf49f94b81a53d9191620f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_70634822cb08531c05ebfea6f8361ad4ddb58e48fff7d95774fa8fe360839900.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_eeb878ebeb8027d75fb1ed4f8f961d15ddbc805e9308352bd2b9a604f56b0d87.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_02cc31b94ce4a30e92f3597335e056a8bea07d4d4e8f9fbf3db95ce08da8204b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_3a9d417464c96754bedf0c9e4fca46d61489cefe64d039723e70ed62de922baa.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_efbfa8023e3f3ecd4fd2c3305b1696570017e0328dde95a7c0da0c4af70c0403.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_055c118e072fe01d59500fe819dc55f42d714994bf7958ff631a31e2a0d09adc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_475495cd0a65bd7f80559a77c97a1e81253c9a0fea695de7a7af6decce2b21bf.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_70d69ab6d175b01e5c4b50bc78222a791d72c20bcde6415a75cab4d156355a5f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_1332304e34ffd4b1bc13d3cdb3d5cfdf18ef74ca98ce181a0f63e2ff3a4841de.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_16bc230772752a489a920778cdcafc30792548f1aec49bf8d0f9b2c33450dd57.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_2c62722f03644ca83c9bd4bad2f8e43ffc2b27ba243cc511ae7592312e5fc0e2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7b1ffe72cb79909ea812e3024ecb58b0110488eaef683b0886830dc5be3da76e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_818a54b8c94630462482b627adc0e1a0a294a004801af7dbd2e98136ad740ba8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_12f13ad206d34a22ec07b50412dfd6f9c892934a055421bd768edc9ad9f6abb1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_59f10bc124ffc1d6a85dde79cdf112ed30ab1959bb76020ab2647b717263a881.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_a0c52aaf34846873748126082f9c649d7cf1d16076b2f4dfef87b5e752dce70d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_57accb0a1c4522c5fc069dbfc75faa9ee2ddae62def3928bf397132e7c3afcc5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_122006810d7d0d84b61fc8e9a7f5172a6072b4328097a4f314f5da489b3f0411.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_002a95772e4cb3fe62b1e4055a924df5b2bde595c7e7f8868a4a458d16f6c253.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7413e6f924ae6d3e35b151d2351788a2e425ac99ae4d393356ebd615024bd8d4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5e481910423e07c27e0f8346e73a9ef5f7edacf5a3295c1f079924a4d347a9ec.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_23c001df1e099e0cf36b3d9e919858c037280a0838dc86ee3c0ce654875af720.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_53b594dc2a5d1981387c798ac09c56da5bc9cf1693f06c6a11b01f566e44f7a3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_e17a10d85a95739c9a571f2db49c312830c5800515a43ac594002edb206d99b4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_b873134a30b64a65cb8eb2b4eaa26bc56db0683cfdf14789a159268ba6486abd.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_fdb6f8a9a0a096a3488bf246e6a7711c882905a51b3fe0bfe3d47e00b23e31ad.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_03d116db0531c6c6b38c40c93cbb1f472c43a863baa50d58afa1cce0303fd30d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_746e977bdb366a138a536535ee76afe9dc240f548825a6334a3642cac310bb5c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_3511c1514cda4501bc5ac195bd8124f00c30c7c6f42613b54c2971e4880ebe1d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5a0c2db8d7ff37bf42f7a8ef3bb964918a5490697851caf7677d75d2a9785e9d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_e8289e75f3c7282e1cc272a10320c935ed955eef4180451075d6e0610e662fd9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_878fe2fa893bacbca67775ecf880623f1affb80396e66b099084c70ac30f0d48.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_335901123ec9cf18aaab418e9e694f1d1f9a79865e0649274ee1144f245ce09b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_e89309503c1c5fb78c0e1abe933da6811652c3f75a4e1b5fd0cc1c3b9846f1b8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_17fc03b7d9a7fd429461a61551cddd6addb33ba63fb49fc728c415fac1a869c1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_adae2c8425565de769850d5c704fab8550153832b523af39370e9babfc069c6e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_979a08c604e11d3dc79aebdc718caea8e37527b1f66b53609cf2ab6f2ee48581.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7383fd1bbe39775627e069eff276da8a16a4174df2475d8a0b8ecc9afc1a9848.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_cf8c113e7e10cd007e6d87edad11995f073a7f7819e1fdce82948675564ddcc4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_29b11ea39bb6fc83d85e09858a1605452edbb1eb2962b589b9489cbabeff8a4b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_98e1d324b93c3bc0abb389c7ddd43a9cf47c9e0577061ffafcb48f2b62c0ff1e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_004a765cd2379eaad9d8e7c3a064f016b14b3a07ce37472ddb732ddd752fe71a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_3c29998c3328f1c3f77e10e08496da86b1ac44491bb0333476d44e5a52d54902.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_723dbe858bafc94c26bbcc7fbe9f50ff7c2ebfea0acea2bc8ce246c2288051e9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5d79f0d15f115797de54ef791bda2f8ee06d83f6ffff52d04d091afce98eb459.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_ca112132bcf4376e05b1252d511d4119bc6f5d4533dc6f135aaaf1a301975f6b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_c22d6a454c8da6aac6f3c648ef979a1cf27c101e91fa96871873005982084e6d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_0ed5ae6883f0ba49a30e2d6f34944109c172ff367e09b4809416bdd44675ba5f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_25e96776911506287ed748dff0f6fff131cd0cfbd26233d81fbbd66ff236fba9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_2f6b5eec507d89f13f341b2de2fb04df44e6f2e0a1c1bb291ba5612de8cf2082.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_29ee6bd52aeca4e941f46128f6cc25c0a68926ea4da991008b4afbff98b3ff92.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_a78fe2565f277d24b24545ebb591e133f8ac5d0c79b1568836efb0abe1dd45d1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_77c81c96d6fae844f865bac27c1185dd574a4cf91b7ff87692c8e018db75ed2f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_5d89e6032d82347cdc2a114646875c5332bcf0f8b745a070e98e7236f07fa5ef.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_7756771200bc098663153358e02380c1c8aea388de5c03f3b91d7d34e031d40e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_51ad233108c9d04b1a8d823cf2cd3d782abbcfcf7945bd27a90d07d3e912d58d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_e3b1fc31dbf4fbeda708311fc3974f44cf9a01e2a89e40b10bc04bfe805a3a5f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_f3e00001b5d0997aa0fdc603a300dfe721c10ce2b3122b05c92ba5eebdf26f0f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s09_a931f670b1e0cc3d97632d1c720a56e599c19a2f7d7836f8c8be0aa834d4ad5d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_5b75d1b3d27da316954f2fc0bd55bc07ee52732be242eca1b4e0af7fbf289b5e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_979ba69520d3618cee7cee7a313e62248347b7cced259e99aa5ba12ad59bd889.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_00bc2f951c90985d4bb5bf94c906a5fe4f9b5879bb3303f63629ce7fb4123a3e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_264de84fe574a83666e0a7917aed2403288537337027038166617b88974c3fae.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_74a3a1de97038d97e017592b80b29c6662f2d0671e5458fb1b7ea78aae9ff2cf.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_9ef6005aab3a9d29af766621503465861b55384745f47bef0602b5309b5178b1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_dfbe3832c929b14e0ce2d4a43d7549c98c3cad0e91e5c22058bfe14e9df67493.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_5bbd4e153963c5eda46a73942e41f3241f8da99add24417d70969187157dc4db.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_8687505a6cbb09c66e098d4735c084412dceac3e4ad6c5460d671f787c1a89fc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_9ce28e8b554f007f01b2d9f0af52eb61d023d29cf20ae143b4736223d3a6438d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_1878959a2ec73ee8af598fc41798e8424ec5b00d7c9a8bcc58c939327a9ddbc0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_3823516c52c4af100f65fbd896639b4d39d1f30facbb0a786fb38d6d32075886.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_757263762e0cd26ac4114dbc53514dcd0105b4125a488534e99c1705b74e0f54.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s10_f39163a353e525a10c5f9ed3a35793babf53742209d7a95e7a27e6f5f1de404f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_5e1ef759f028a711ca66fd9ef5696a1fee4b52dfd03b9f6ec609e3494416856c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_bf07f13320e60885d6259bd064e26a17049973c7931f3f813b9cda3b15591e70.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_bd69b03eb72e91846bc3442d67ad9197a151c47a28c591a30214fc22149e01d9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_c50ba42e5655f12d1d39a61d2d5d474b8aa23528889b7173d7d2143cd59321c1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_4d6a1b0831ca22d84f67c59e2511fb143689fea51c5a106b9fa0fd46dc959d99.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_47ce0b0164f3eda3f53094b786c03261c3749e4dc018e0e2170c7119bfa59740.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_2cbf9d120cd5197a1a0fd3d80a787cecb48073edfe901c80fd61549c601229e8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_9935a12f25c57e1b1ec46474c96e8c64609e51464e83f54d46fcd46516fc887b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_4d862fa7e765f50321aa1ba8eed295606bc90bb6a95ee9673f779d882bf0d8b7.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_f0b6be4f7f732d54a777c5263de87e4dc47c2f7a9972a927c0190c454c743178.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_b377dc53f46bcfc1cdd0ba95a049a36a05f2412d7de9a2694456ebfd6722219b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_2b087808a5b670d99a218e685876a5397c384dcf47018bde59b5312dfe56ec98.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_5c46c983692bee86ce832e2201e08e43b130df147b5af567ab094de38e6f23d8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_613df95379867463ebfbc65b2d1fe0a1edb271cc373cfd5445b96e608df9d387.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_827b77e0a3a2b6c5470e47c309eb3a8ab1fcdfc2a433244b9eb6e14bc9380521.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_ea970fb6b570234cd2ebcc9a2d71c068c82fb3249c6158e2a013c913cc84315c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_c9b234395e1224faf2853309b3d0d7828056e717d05478ade6ffb49fe1db72e8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_702c7d6f72005a85913e9ecd15561912774d72b2b4d1ecfb086dc452388140fe.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_6f21fa8627e66a3b65a24bb6609f72988c13b23c8c5a2aea80ccc99ce3514abb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_c4a6b5b9248ca29d9c0460e2ac7d49ca72eccf75bd963025d5f8eb9f5713f1ea.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_a2c2fd1945f1e7083c961cc16dbf14b4cb8f2ff8261bd846d1fb7a0dcdf2704d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_69c16f1e7cf6748f30b1a287d28d15c724c431eaf30db9a2a44ed6d9a38cf4d9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_7bf0cc88bec1af470f3a04f9f2a81a06de15d238ad18bbbf084feee09621605c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_24dbf9e129a40b5e301a57517775a407fa55b73d8de2baa3dfd7433da67bb4f5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_21d430ab0e4f50419ca20286a78f246222ee0ff6ae878385bccdeae89becd620.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_58a00da9a469f130d821c4ab607f43e70a6d4ed5f66b9ad63b5cf96b4a4de279.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_174b6696559a333f93d5a7cbdf228fa56201b7f94f9fe2bdfeff5b66afaa6839.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_300fa9f6c2bdfda084a052db4a26cd7ccca3b1e5436cca047af0e8f68bb19860.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_f0a69a5b92baae893ad5bcb04d6ca418b41adae6a81e72e15a1d3cd4cf221bd5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_4889727dfef1285680b8ef2233ba52265572d88b4a9102a00ab00a3ed7f10ad6.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_0c187e327d209dd68cf3ee795a766f8d45d0abf9e45cf90855934c6170a32cc8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_1b54f37cdfe728831bff37d54d241de279be9dd41437fe7fb36d8fc0dd07b886.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_7d21fb384c917f7af641b745a5576a8cd91cb9d426d9885b885ec6d7f7a03c63.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_bf8121021bc2c94946f5ac4d1188c1be418071559b6f4e5ded4ae3ddf1d536f1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_9a5d8770cf1fe0b61aa19c69b937515ee3f818f705566c85a31c115ee9c5ce9a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s11_9bdbd818d550c1a44f8b510b7ac04efcb590348fd1c2b10c03659010fc6ac6b2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_8c1c87e94c92ed2b73a7206ef90ea8ca2fccac97194aa6b8581f6ef871cdbb4a.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_b13d9210565a47a5a3e273ab9561c92d275c2e1bdea07ec09c3573f1af730b7c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_c6198dc63ee7876c296a4826b5cf1b4b7f355b738c7c63d0ea0b2aca3c58d7a6.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_ba611e24fdd806f6df86aba9056fb89d8d0c2d7bf90d3ad828365d1491794589.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_504a509fc1758f922f600570c03a2d0a4067ac958c7d3afa593ff14ae9456026.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_4f77238aebbc09b9099ff4d7d398a7f55d7b7016b22239ae31fa59795f3c65db.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_085a99123ebae1dce12c40427b69078bf76f2ca4aa6aa7a6a8bdbf6452932124.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_b9e9ab4340a9c6b319b13fe5fef919c4a22ef0805945a90d90b900b3f1f9e415.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s12_eecd98576291575482168d5b8b6ac8f2ce2bcbc41c02c5073c9d7e81eb4a2df4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s13_f86bc713eab8a9496f246ab57cb0594316fe00f65ece00df8745720d8fa3bd57.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s13_2a647fe03e84ea111092125341082e77261780d6c4f646ba11ba2c58967d993f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s13_ccca8f284af70bc23e75fcb173487b8a4ff8a9c241b5856704d4603228d12560.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s14_44ad78ca8d1a67d1382610a4bb81b14e51bbe8440716bc61c7880d2526a34443.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s14_d2d7448a43503780797277dc77df47d6c7c50bac28a0bf2ab655f9dde2aa9329.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s14_c90b530960f6ce2f263e5bd735e16a73e5bbe570726e968559508a1c747cc353.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s15_6f3d66bf3c37fe9912c5f93ea2ce414234c43d1e0b126e9c2c13790d36371ceb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s15_e024a0e29f8d04907e10c2d9a5002447fb862643ef76e3aea74292ba9d669902.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s15_47fb89dd01b1e235b17083c998f5c24d043fde5125faf9ed00328a8c779c5a90.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s16_3bd98567dc37137648b6038174e92777a544de2809c2b4b3937f1328765a219f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s16_7201750f80e8156aac950f07ce9ec0ce80dbc5a2bab190f72ca936d71e18f369.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s16_3e362041364f067999fa2cc21fb71f35fe2127642aa9581ec8025a15b3fdd755.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s17_4797093acdfd888b11c03e453a2eab494ef085db4cdd9d53373bf88fe097bb0c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s17_d1d06b4b5c5bc94528d5eaeb8f4e7dc144fadc755487188af16df579976e4636.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s17_33bbc0963c3d3431bad8f2663d9c456772fb09a4d6a1ea060bcce73bc5c343a5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s17_5576561502dcceba8b6b3043bbc129ca5c30c215f55c2e6799c43de638d07410.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s17_b17f79735880a3a7202c9399dd554c3c815d99ff9b74b6903d4380daf40a3d14.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s18_522a6effaec81de5693b7845033217a63f33d1502eb3644a3d4bd628c514c7de.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s18_cdf546a59a2db4eb123f34ace0ed61c1eedd54d14db9a6d927927697a2ee3166.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s18_94e1ea190a36e3d46014e267220cdc1c30c989d8f31669dd4ff4c33a7bb851bf.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s19_f8b9ad0856cfe3e7979b59f557504e5640566715f894f43fd1afbcfa03c10b0d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s19_cde4a0cbb32e8a93e28abd7d3a12fa5a0e17912664e80d689329e004b3b9c3b6.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s19_582fdc82bfd4803d3a06fa070a3beb600eb6a5df5941ffbb479787e0f0eee8b6.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s19_f36a91580b7115beb5fcd04a9c4aea62569dc03c8cafe8ae34fe3fa31f6beb1f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s19_91e39f759fd5b7c1639ca8f14e7ed407ca2be5fd29ca3566787b15b52203cfa0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s19_f654f548c1d8bc2224153b2889cea75098cae11795dfd554a0080582af4c63d2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_fc3aafed1bf9f38a96572bcb4be0da97b21ced83603675dc473b1e515d58ab7e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_f9ace80b3d97bdd0559764a0a69dfb039d0c2d1340b34d87f015b78a36f8b979.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_ac1bf8b6ed3b7a5a9066bd26243aa35d1c3688440165a91f5da78efee66a6552.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_aeb9536c0af1db059afdba9a12b5c35b6b0aea182920d71d76ed9434b5c3dba6.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_65eb119771f7463d10e1e06e20a16a9953fc3b3e0162f053e00c5e2148ec3585.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_6faf90290bb515f02adb3cc25ba5a767f3112fd300a62fc4082183568dc853d2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_6710962fe27debe92a50c9a21aa9b5b7a36ae00edb71e731880fc717a711daeb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_a8fa4ef578103d89e54ef262f99c32177d4ca876d8e95051303ffb059e063efb.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_fd60b8bc19b4ec45939b9d876f9477ee6932f8e93175f84a894dbd6f944b78c2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_c789187f04042b45cfaf11588cdc091627a40ae9f6777a01e3797594975bc1ff.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_2b9284a4adf9b56ccf746eac7dc8f21278b5a6c59f6c34ff6215da6e46ea4e31.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_bfb451ac58d73e3b1b84148e9cba462358d551e9e89016adaf90ce3269bb2244.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s20_0f1e906d0560f46112a2c27255cbab9826b9fe584155013cf46eddfde1c950ef.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_6313bdf7b4035db53365b5235b733b62ebfc56811691b155ba3fe83b0c03941c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_7d3df802c96937c38cd7236adef6af22375e2eae8bd27f9184467b1d9433f08a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_46d15f83a7c6ed100b3f0a02cb01cb0fafa2c6c1303760aec911064e34e0aa86.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_688b69875a4168de2e0788e6463627e32b570248d28e4b3125d72d4d6d6a138e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_18315d29684a93449353617aabffadc17f15edd9d441ef53ac8fdcecf64202b1.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_861ff55fcb1bebc6ec3dc4ce1c8837a64e0c5bb010c1b5752a6d9d51240a1a37.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s21_a791a1442a7ae3516b3aabccd2fcf20fd6b4953efc4bec072a503f905927016c.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_3aff7e537ddfa5beb6d7d88c36fbb1936aac779fa0f0646818ff2ad1adb1d513.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_62f198a4a86080218d9ee0c629a93c43901bcef97d4080090224fb5fe9a4ca0c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_bbbea0c4732bdd6d5e3fc8fe6e760ce28bebd5f5c6bd18ce99ec773a9b9a14b4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_eb6c0e028583827cd4a60a8aa4277b4529c3ca97749d77333c6c5ca62f507caa.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_fee00a499860f9755e5f4005ac5bcdf60f3ad4413623d1bed850ebdccacbc629.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_d8ad42c42e8044d31760c58c5f12b6eb6dc7555a3e9493a92adf219022b98afc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s22_ad2562ec0a75e8673bb79262a9925c57d8557cf2b97c9cafeef6dc8e6f0dbcca.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s23_2c8a9be1c94e64dd1743f69262848d673bac9825a6383811dada209fe9fdb8af.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_f13bdaac7d1462c4b70af18c4e88992de5b46b714a37287b29ed4431953b5853.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_c3ed2388a1e1576f0d22caeaa37400fcd54c5f3e23f5e818afc231fbd410dd1d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_8827efe98e882cc03d012b50289a41641d36cd8be4c21aeea336018271f38183.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_8171bcc9b33029751f560156f51619817364e5216b29585e79d1026e1914187c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_a1fdac93e486d29ea5058241229ab7dc959048d521c565bc8da3ba2744feeab2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_f6949502b0a8ac19ed086b0d61a364afdea8c04d073ab15649a32369662fd0a5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_b5d13f5ebe40e7aa3f3e31340ee18fe4d0e5865de9ae5e6d978ac89d0a563db7.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_e27ec42679cb22b1bd39bde36f0160fde313e4e95f2cc1109109537c4935520a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_86a9911f648589b130585e6ae419470521fe1bfba490618c5948af67fd519443.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_91c06848859ae472d627537066cdebf39b3c8b05440f27434c38b65bade9cdb2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_6c1d703e9c28e45cc38ea7c4e7f81ce81bae06c77c0700dafa3909703ac41efd.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_35ce058b4e16b4aaea4f4fcd3225c89d7a546e137eb19310ad8940301b904693.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_cc625195000edea9021fb8833b494f4573b686b33ff18bcaa44655a80c9bcc83.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s24_c3b5ec85101fb4db5952acfe45fbf6083f63e0b4799569de028415828e1da9e0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_8c1c87e94c92ed2b73a7206ef90ea8ca2fccac97194aa6b8581f6ef871cdbb4a.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_0242f6b197b38b031f893cb8694a875ebc22d3bf53889993ba23968598b6f736.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_0225f7cbd30688814b0f3149f6feb2a173ef84a07ab9d643375086950f431480.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_39f39cdb67c04775f6e492906d5e590577f4e7f7cc59bb325b9da0dbcaaf2a0b.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_a2138621bf1d5a5b32cdae914e83b57a76bfeccb7fad6412934e6a48dc83ae2a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_8614b9eaf80bc4e0992a5d4b363dae36dd53a0e6fc62d307b4955d941bf45429.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_7dc8e7cb475dd435170f1475f2921d3062bb8b127a9e196a4c3c4483e5023681.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_fc1799c85691d726830fa13d3ae420c494af9f505322df1b503b437a8ece503f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_fdb3ca1c775eca7b62ad6c10506b5377a35c2854b22b891d84a64d396a9d6ea5.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s25_5e6d44cca5bb24de8dd48a24c9a5d034f7a49b24a52b7ada2d7f3077c8ecb6df.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s26_c63ac7ac33e4becedddb20b2e44234125e99483262af32cd7ad13138062a750e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s27_b65202d62ce5a06356a912f441abf8ae3b5619401997675e329e35e36c6f5f56.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s28_d7cd20912787b127463ab846f1a26be30be6ffa904c6f90921e9753ae53b5a8d.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s29_9f2eece573e508e4fbf3ad702d5accb7438e9deb071b7add64c4174a5dd8c050.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Refraction_assets/s29_42b9585a24bcee6591049d8c9c9b8b1206dab1c5c54872ba6b315e323dacab06.mp4"
+          >        </section></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
+
+    <!-- To include plugins, see: https://revealjs.com/plugins/ -->
+
+<!-- <script src="index.js"></script> -->
+    <div id="controls-container">
+      <div id="stopwatch-display">00:00:00</div>
+      <button class="control-btn" id="playPauseBtn">▶</button>
+      <button class="control-btn" id="resetBtn">⟳</button>
+      <button class="control-btn" id="fullscreenBtn">⛶</button>
+  </div>
+
+  <div id="clock-container">
+      <div id="clock-display"></div>
+      <button id="clock-btn">🕒</button>
+  </div>
+    <script>
+      const controls = document.getElementById('controls-container');
+      const display = document.getElementById('stopwatch-display');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+      let stopwatch;
+      let isRunning = false;
+      let time = 0;
+
+      function formatTime(ms) {
+          const hours = Math.floor(ms / 3600000);
+          const minutes = Math.floor((ms % 3600000) / 60000);
+          const seconds = Math.floor((ms % 60000) / 1000);
+          return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+          if (!isRunning) {
+              display.style.display = 'block';
+              controls.classList.add('active');
+              isRunning = true;
+              playPauseBtn.textContent = '⏸';
+              const startTime = Date.now() - time;
+              stopwatch = setInterval(() => {
+                  time = Date.now() - startTime;
+                  display.textContent = formatTime(time);
+              }, 1000);
+          } else {
+              clearInterval(stopwatch);
+              isRunning = false;
+              playPauseBtn.textContent = '▶';
+          }
+      });
+
+      resetBtn.addEventListener('click', () => {
+          clearInterval(stopwatch);
+          isRunning = false;
+          time = 0;
+          display.style.display = 'none';
+          controls.classList.remove('active');
+          playPauseBtn.textContent = '▶';
+      });
+
+      fullscreenBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+              document.documentElement.requestFullscreen();
+              fullscreenBtn.textContent = "↙";
+          } else {
+              document.exitFullscreen();
+              fullscreenBtn.textContent = "⛶";
+          }
+      });
+
+      const clockContainer = document.getElementById('clock-container');
+      const clockBtn = document.getElementById('clock-btn');
+      const clockDisplay = document.getElementById('clock-display');
+      let isClockVisible = false;
+
+      function updateTime() {
+          const now = new Date();
+          const time = now.toLocaleTimeString('en-US', {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false
+          });
+          clockDisplay.textContent = time;
+      }
+
+      clockBtn.addEventListener('click', () => {
+          isClockVisible = !isClockVisible;
+          clockDisplay.style.display = isClockVisible ? 'block' : 'none';
+          clockContainer.classList.toggle('active', isClockVisible);
+          if (isClockVisible) {
+              updateTime();
+          }
+      });
+
+      // Update time every minute
+      setInterval(() => {
+          if (isClockVisible) {
+              updateTime();
+          }
+      }, 60000);
+    </script>
+    <script>
+      Reveal.initialize({
+        // The "normal" size of the presentation, aspect ratio will
+        // be preserved when the presentation is scaled to fit different
+        // resolutions. Can be specified using percentage units.
+        width: '100%',
+        height: '100%',
+
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+        maxScale: 2.0,
+
+        // Display presentation control arrows
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        // - true:    Show slide number
+        // - false:   Hide slide number
+        //
+        // Can optionally be set as a string that specifies the number formatting:
+        // - "h.v":   Horizontal . vertical slide number (default)
+        // - "h/v":   Horizontal / vertical slide number
+        // - "c":   Flattened slide number
+        // - "c/t":   Flattened slide number / total slides
+        //
+        // Alternatively, you can provide a function that returns the slide
+        // number for the current slide. The function should take in a slide
+        // object and return an array with one string [slideNumber] or
+        // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+        slideNumber: false,
+
+        // Can be used to limit the contexts in which the slide number appears
+        // - "all":      Always show the slide number
+        // - "print":    Only when printing to PDF
+        // - "speaker":  Only in the speaker view
+        showSlideNumber: 'all',
+
+        // Use 1 based indexing for # links to match slide number (default is zero
+        // based)
+        hashOneBasedIndex: false,
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: false,
+
+        // Enable support for jump-to-slide navigation shortcuts
+        jumpToSlide: true,
+
+        // Push each slide change to the browser history.  Implies `hash: true`
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Optional function that blocks keyboard events when retuning false
+        //
+        // If you set this to 'focused', we will only capture keyboard events
+        // for embedded decks when they are in focus
+        keyboardCondition: null,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // Changes the behavior of our navigation directions.
+        //
+        // "default"
+        // Left/right arrow keys step between horizontal slides, up/down
+        // arrow keys step between vertical slides. Space key steps through
+        // all slides (both horizontal and vertical).
+        //
+        // "linear"
+        // Removes the up/down arrows. Left/right arrows step through all
+        // slides (both horizontal and vertical).
+        //
+        // "grid"
+        // When this is enabled, stepping left/right from a vertical stack
+        // to an adjacent vertical stack will land you at the same vertical
+        // index.
+        //
+        // Consider a deck with six slides ordered in two vertical stacks:
+        // 1.1    2.1
+        // 1.2    2.2
+        // 1.3    2.3
+        //
+        // If you're on slide 1.3 and navigate right, you will normally move
+        // from 1.3 -> 2.1. If "grid" is used, the same navigation takes you
+        // from 1.3 -> 2.3.
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the question-mark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autolaying embedded media (video/audio/iframe)
+        // - null:   Media will only autoplay if data-autoplay is present
+        // - true:   All media will autoplay, regardless of individual setting
+        // - false:  No media will autoplay, regardless of individual setting
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes
+        // - null:   Iframes with data-src AND data-preload will be loaded when within
+        //           the viewDistance, iframes with only data-src will be loaded when visible
+        // - true:   All iframes with data-src will be loaded when within the viewDistance
+        // - false:  All iframes with data-src will be loaded only when visible
+        preloadIframes: null,
+
+        // Can be used to globally disable auto-animation
+        autoAnimate: true,
+
+        // Optionally provide a custom element matcher that will be
+        // used to dictate which elements we can animate between.
+        autoAnimateMatcher: null,
+
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateEasing: 'ease',
+        autoAnimateDuration: 1.0,
+        autoAnimateUnmatched: true,
+
+        // CSS properties that can be auto-animated. Position & scale
+        // is matched separately so there's no need to include styles
+        // like top/right/bottom/left, width/height or margin.
+        autoAnimateStyles: ['opacity', 'color', 'background-color', 'padding', 'font-size', 'line-height', 'letter-spacing', 'border-width', 'border-color', 'border-radius', 'outline', 'outline-offset'],
+
+        // Controls automatic progression to the next slide
+        // - 0:      Auto-sliding only happens if the data-autoslide HTML attribute
+        //           is present on the current slide or fragment
+        // - 1+:     All slides will progress automatically at the given interval
+        // - false:  No auto-sliding, even if data-autoslide is present
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding (defaults to navigateNext)
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customize each link
+        // individually
+        previewLinks: false,
+
+        // Exposes the reveal.js API through window.postMessage
+        postMessage: true,
+
+        // Dispatches all reveal.js events to the parent window through postMessage
+        postMessageEvents: false,
+
+        // Focuses body when page changes visibility to ensure keyboard shortcuts work
+        focusBodyOnPageVisibilityChange: true,
+
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // The maximum number of pages a single slide can expand onto when printing
+        // to PDF, unlimited by default
+        pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+
+        // Prints each fragment on a separate slide
+        pdfSeparateFragments: true,
+
+        // Offset used to reduce the height of content within exported PDF pages.
+        // This exists to account for environment differences based on how you
+        // print to PDF. CLI printing options, like phantomjs and wkpdf, can end
+        // on precisely the total height of the document whereas in-browser
+        // printing has to end one pixel before.
+        pdfPageHeightOffset: -1,
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000
+      });
+
+    </script>
+
+    
+  </body>
+</html>
