@@ -250,74 +250,146 @@ data-background-video-loop          >        </section><section
           data-background-video="Refraction_assets/s02_44df2b179b10003529a046963becb4ff01c8d0bccbfaa14740d8cbb0c4f8c66c.mp4"
           >        </section>
           <section data-background-color="black" style="padding: 0; margin: 0;">
-            <div style="display: flex; width: 100vw; height: 100vh; overflow: hidden; flex-direction: row;">
-              
-              <!-- Left: Simulation -->
-              <div style="flex: 0 0 65%; height: 100%;">
+            <style>
+              .sim-container {
+                display: flex;
+                flex-wrap: wrap;
+                height: 100vh;
+                width: 100vw;
+                font-family: sans-serif;
+              }
+          
+              .sim-left {
+                flex: 1 1 70%;
+                min-width: 300px;
+                height: 55vh;
+              }
+          
+              .sim-right {
+                flex: 1 1 30%;
+                min-width: 280px;
+                height: 100vh;
+                box-sizing: border-box;
+                background: #1c1c1c;
+                color: white;
+                padding: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                font-size: 0.85rem;
+              }
+          
+              .sim-right input,
+              .sim-right button {
+                width: 100%;
+                font-size: 0.9rem;
+                padding: 6px;
+                margin-top: 0.5rem;
+                border-radius: 6px;
+                box-sizing: border-box;
+              }
+          
+              .sim-right button {
+                background: #28a745;
+                color: white;
+                border: none;
+                margin-top: 1rem;
+              }
+          
+              .sim-right table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.8rem;
+                text-align: center;
+                margin-top: 0.5rem;
+              }
+          
+              .sim-right th,
+              .sim-right td {
+                padding: 4px;
+                border-bottom: 1px solid #666;
+              }
+          
+              .sim-right h3 {
+                text-align: center;
+                color: #6cf;
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+              }
+          
+              @media (min-width: 768px) {
+                .sim-left {
+                  height: 100vh;
+                }
+              }
+            </style>
+          
+            <div class="sim-container">
+              <!-- Simulation -->
+              <div class="sim-left">
                 <iframe src="https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_all.html"
                         style="width: 100%; height: 100%; border: none;"
                         allowfullscreen loading="lazy">
                 </iframe>
               </div>
           
-              <!-- Right: Calculator + Table -->
-              <div style="flex: 0 0 35%; height: 100%; background: #1c1c1c; color: white; padding: 1rem; display: flex; flex-direction: column; box-sizing: border-box;">
-                <!-- Calculator Inputs -->
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                  <h3 style="text-align:center; color: #6cf;">Snell's Law Calculator</h3>
-                  <label>Angle of Incidence (i°):</label>
-                  <input id="angle-i" type="number" min="0" max="90" step="0.1"
-                         style="width: 100%; padding: 8px; font-size: 1rem; border-radius: 6px;">
-          
-                  <label>Angle of Refraction (r°):</label>
-                  <input id="angle-r" type="number" min="0" max="90" step="0.1"
-                         style="width: 100%; padding: 8px; font-size: 1rem; border-radius: 6px;">
-          
-                  <button onclick="calculateSnell()" style="width: 100%; padding: 10px; font-size: 1rem; border: none; border-radius: 6px; background: #28a745; color: white;">
-                    Calculate sin(i) / sin(r)
-                  </button>
+             <!-- Calculator + Table -->
+              <div class="sim-right">
+                <h3>Snell's Law Calculator</h3>
+
+                <label>Angle of Incidence (i°):</label>
+                <input id="angle-i" type="number" min="0" max="90" step="0.1">
+
+                <label>Angle of Refraction (r°):</label>
+                <input id="angle-r" type="number" min="0" max="90" step="0.1">
+
+                <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                  <button onclick="calculateSnell()" style="flex: 1;">Calculate</button>
+                  <button onclick="clearTable()" style="flex: 1; background: #dc3545;">Clear Table</button>
                 </div>
-          
-                <!-- Table -->
-                <div style="flex: 1; overflow-y: auto; margin-top: 1rem;">
-                  <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 1rem;">
-                    <thead style="background-color: #333;">
+
+                <div style="flex: 1; overflow-y: auto;">
+                  <table>
+                    <thead>
                       <tr>
-                        <th style="padding: 8px; border-bottom: 1px solid #666;">i (°)</th>
-                        <th style="padding: 8px; border-bottom: 1px solid #666;">r (°)</th>
-                        <th style="padding: 8px; border-bottom: 1px solid #666;">sin(i) / sin(r)</th>
+                        <th>i (°)</th>
+                        <th>r (°)</th>
+                        <th>sin(i)/sin(r)</th>
                       </tr>
                     </thead>
-                    <tbody id="results-table">
-                      <!-- Calculated results go here -->
-                    </tbody>
+                    <tbody id="results-table"></tbody>
                   </table>
                 </div>
               </div>
-            </div>
+
           
-            <script>
-              function calculateSnell() {
-                const i = parseFloat(document.getElementById('angle-i').value);
-                const r = parseFloat(document.getElementById('angle-r').value);
-                if (!isNaN(i) && !isNaN(r) && r !== 0) {
-                  const sin_i = Math.sin(i * Math.PI / 180);
-                  const sin_r = Math.sin(r * Math.PI / 180);
-                  const ratio = sin_i / sin_r;
-                  const table = document.getElementById('results-table');
-          
-                  const row = document.createElement('tr');
-                  row.innerHTML = `
-                    <td style="padding: 6px;">${i.toFixed(2)}</td>
-                    <td style="padding: 6px;">${r.toFixed(2)}</td>
-                    <td style="padding: 6px;">${ratio.toFixed(4)}</td>
-                  `;
-                  table.appendChild(row);
-                } else {
-                  alert("Please enter valid angles (r ≠ 0).");
+              <script>
+                function calculateSnell() {
+                  const i = parseFloat(document.getElementById('angle-i').value);
+                  const r = parseFloat(document.getElementById('angle-r').value);
+                  if (!isNaN(i) && !isNaN(r) && r !== 0) {
+                    const sin_i = Math.sin(i * Math.PI / 180);
+                    const sin_r = Math.sin(r * Math.PI / 180);
+                    const ratio = sin_i / sin_r;
+                    const table = document.getElementById('results-table');
+              
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                      <td>${i.toFixed(2)}</td>
+                      <td>${r.toFixed(2)}</td>
+                      <td>${ratio.toFixed(4)}</td>
+                    `;
+                    table.appendChild(row);
+                  } else {
+                    alert("Please enter valid angles (r ≠ 0).");
+                  }
                 }
-              }
-            </script>
+              
+                function clearTable() {
+                  const table = document.getElementById('results-table');
+                  table.innerHTML = "";  // Remove all rows
+                }
+              </script>
+              
           </section>
           
           <section data-background-color="black">
