@@ -17,9 +17,9 @@
     <style>
       #controls-container {
           position: fixed;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
+          top: 20px;
+          right: 20px;  /* Changed from left: 50% */
+          transform: none;  /* Removed translateX */
           z-index: 9999;
           display: flex;
           align-items: center;
@@ -60,7 +60,7 @@
 
       #clock-container {
           position: fixed;
-          bottom: 20px;
+          top: 20px;  /* Changed from bottom to top */
           left: 20px;
           z-index: 9999;
           display: flex;
@@ -95,376 +95,207 @@
           font-size: 24px;
           display: none;
       }
+
+      /* Drawing Tools Styles */
+      .drawing-tools {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 8px;
+        padding: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        min-height: 50px;
+        width: auto;
+        min-width: 600px;
+      }
+
+      .drawing-tools.collapsed {
+        width: 60px;
+        min-width: 60px;
+        overflow: hidden;
+      }
+
+      .drawing-tools.collapsed .tools-panel {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        margin-left: -100%;
+        transition: all 0.3s ease;
+      }
+
+      .tools-panel {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        opacity: 1;
+        visibility: visible;
+        margin-left: 0;
+        transition: all 0.3s ease;
+      }
+
+      .tool-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+      }
+
+      .tool-section:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 70%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .tools-row {
+        display: flex;
+        gap: 5px;
+      }
+
+      .tool-btn {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tool-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .tool-btn.active {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      .shapes-panel {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 9998;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 8px;
+        padding: 10px;
+        display: none;
+      }
+
+      .color-picker {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .thickness-slider {
+        width: 100px;
+        margin: 0 10px;
+      }
+
+      #drawing-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9998;
+        touch-action: none;
+      }
+
+      #drawing-canvas.active {
+        pointer-events: auto;
+        cursor: crosshair;
+      }
+
+      #drawing-canvas.active[data-tool="eraser"] {
+        cursor: none;
+      }
+
+      /* Add styles to ensure reveal.js controls are clickable */
+      .reveal .controls {
+        z-index: 9997;
+      }
+
+      .reveal .progress {
+        z-index: 9997;
+      }
+
+      .fill-controls {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 8px;
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+
+      .fill-controls.active {
+        display: flex;
+      }
+
+      .fill-controls::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid rgba(0, 0, 0, 0.7);
+      }
+
+      .eraser-controls {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 8px;
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+
+      .eraser-controls.active {
+        display: flex;
+      }
+
+      .eraser-controls::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid rgba(0, 0, 0, 0.7);
+      }
     </style>
     
-<!-- Canvas for Drawing -->
-<canvas id="draw-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9998; pointer-events: none;"></canvas>
-
-<!-- Pen Tools Panel -->
-<div id="pen-panel" style="position: fixed; bottom: 20px; right: 140px; z-index: 9999; background: rgba(30, 30, 30, 0.9); padding: 10px; border-radius: 10px; display: flex; flex-direction: row; gap: 0.5rem; align-items: center; transition: all 0.3s;">
-  <button id="pen-toggle" title="Toggle Pen">✏️</button>
-  <button id="eraser" title="Eraser">🧽</button>
-  <button id="undo" title="Undo">↩️</button>
-  <button id="redo" title="Redo">↪️</button>
-  <button id="clear-all" title="Clear All">🗑️</button>
-  <select id="pen-size" title="Pen Size">
-    <option value="2">Thin</option>
-    <option value="4" selected>Medium</option>
-    <option value="6">Thick</option>
-  </select>
-  <input type="color" id="pen-color" title="Pick Pen Color" value="#ffeb3b" style="width: 36px; height: 36px; border: none;">
-  <button id="shape-toggle" title="Shapes">📐</button>
-  <button id="pen-collapse" title="Collapse Panel">⬇️</button>
-</div>
-
-<!-- Shape Picker Popup -->
-<div id="shape-picker" style="display: none; position: fixed; bottom: 80px; right: 140px; background: white; border: 1px solid #ccc; border-radius: 8px; padding: 8px; z-index: 10000; display: flex; flex-direction: column; gap: 5px;">
-  <label style="font-weight: bold; text-align: center;">Shapes</label>
-  <button class="shape-option" data-shape="line">📏 Line</button>
-  <button class="shape-option" data-shape="rect">▭ Rectangle</button>
-  <button class="shape-option" data-shape="circle">⚪ Circle</button>
-  <button class="shape-option" data-shape="triangle">🔺 Triangle</button>
-  <button class="shape-option" data-shape="cube">🧊 Cube</button>
-  <button class="shape-option" data-shape="sphere">⚽ Sphere</button>
-  <button id="shape-close" style="margin-top: 5px;">⬆️ Collapse</button>
-</div>
-
-<style>
-  .selected-tool {
-    background-color: #444;
-    border-radius: 5px;
-  }
-</style>
-
-<script>
-  const shapePicker = document.getElementById('shape-picker');
-  const penPanel = document.getElementById('pen-panel');
-
-  document.getElementById('shape-toggle').onclick = () => {
-    shapePicker.style.display = 'flex';
-  };
-
-  document.getElementById('shape-close').onclick = () => {
-    shapePicker.style.display = 'none';
-  };
-
-  // Tool button visual state
-  function selectTool(id) {
-    document.querySelectorAll('#pen-panel button').forEach(btn => btn.classList.remove('selected-tool'));
-    document.getElementById(id).classList.add('selected-tool');
-  }
-
-  document.getElementById('pen-toggle').onclick = () => {
-    isPenEnabled = !isPenEnabled;
-    isEraser = false;
-    canvas.style.pointerEvents = isPenEnabled ? 'auto' : 'none';
-    selectTool('pen-toggle');
-  };
-
-  document.getElementById('eraser').onclick = () => {
-    isEraser = true;
-    isPenEnabled = true;
-    canvas.style.pointerEvents = 'auto';
-    selectTool('eraser');
-  };
-
-  document.getElementById('undo').onclick = () => {
-    if (strokes.length > 0) {
-      const last = strokes.pop();
-      redoStack.push(last);
-      redrawStrokes();
-    }
-    selectTool('undo');
-  };
-
-  document.getElementById('redo').onclick = () => {
-    if (redoStack.length > 0) {
-      const restored = redoStack.pop();
-      strokes.push(restored);
-      redrawStrokes();
-    }
-    selectTool('redo');
-  };
-
-  document.getElementById('clear-all').onclick = () => {
-    strokes = [];
-    redoStack = [];
-    redrawStrokes();
-    selectTool('clear-all');
-  };
-
-  // Pen panel collapse/expand
-  let isPanelCollapsed = false;
-  document.getElementById('pen-collapse').onclick = () => {
-    isPanelCollapsed = !isPanelCollapsed;
-    penPanel.style.maxWidth = isPanelCollapsed ? '50px' : '';
-    penPanel.style.overflow = isPanelCollapsed ? 'hidden' : 'visible';
-    penPanel.style.flexWrap = isPanelCollapsed ? 'wrap' : 'nowrap';
-    document.getElementById('pen-collapse').textContent = isPanelCollapsed ? '⬆️' : '⬇️';
-  };
-
-  document.getElementById('pen-size').onchange = e => penSize = parseInt(e.target.value);
-  document.getElementById('pen-color').onchange = e => penColor = e.target.value;
-
-  document.querySelectorAll('.shape-option').forEach(btn => {
-    btn.onclick = () => {
-      currentShape = btn.dataset.shape;
-      canvas.style.pointerEvents = 'auto';
-      document.querySelectorAll('.shape-option').forEach(b => b.classList.remove('selected-tool'));
-      btn.classList.add('selected-tool');
-    };
-  });
-  let strokes = [];
-  let redoStack = [];
-  let isPenEnabled = false;
-  let isEraser = false;
-  let drawing = false;
-  let currentStroke = [];
-  let currentShape = null;
-  let shapeStartPoint = null;
-  let previewShape = null;
-  let penColor = document.getElementById('pen-color').value;
-  let penSize = parseInt(document.getElementById('pen-size').value);
-
-  const canvas = document.getElementById('draw-canvas');
-  const ctx = canvas.getContext('2d');
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    redrawStrokes();
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  function getEventPos(e) {
-    if (e.touches) return [e.touches[0].clientX, e.touches[0].clientY];
-    return [e.clientX, e.clientY];
-  }
-
-  function startDraw(x, y) {
-    if (!isPenEnabled || currentShape) return;
-    drawing = true;
-    currentStroke = [[x, y]];
-  }
-
-  function draw(x, y) {
-    if (!drawing || currentShape) return;
-    const [lastX, lastY] = currentStroke[currentStroke.length - 1];
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(x, y);
-    ctx.strokeStyle = penColor;
-    ctx.lineWidth = penSize;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.stroke();
-    currentStroke.push([x, y]);
-  }
-
-  function endDraw() {
-    if (!isPenEnabled || currentShape) return;
-    drawing = false;
-    if (currentStroke.length > 1) {
-      const stroke = { type: 'pen', path: currentStroke, color: penColor, size: penSize };
-      strokes.push(stroke);
-      redoStack = []; // ✅ Clear redo stack
-      redrawStrokes();
-    }
-  }
-
-  function eraseAt(x, y) {
-    const radius = 20;
-    strokes = strokes.filter(stroke => {
-      if (stroke.type === 'pen') {
-        return !stroke.path.some(([px, py]) => Math.hypot(px - x, py - y) < radius);
-      } else if (stroke.type === 'shape') {
-        const [x1, y1] = stroke.start;
-        const [x2, y2] = stroke.end;
-        const center = [(x1 + x2) / 2, (y1 + y2) / 2];
-        return Math.hypot(center[0] - x, center[1] - y) > radius;
-      }
-      return true;
-    });
-    redrawStrokes();
-  }
-
-  function redrawStrokes() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const item of strokes) {
-      if (item.type === 'pen') {
-        ctx.beginPath();
-        for (let i = 1; i < item.path.length; i++) {
-          ctx.moveTo(item.path[i - 1][0], item.path[i - 1][1]);
-          ctx.lineTo(item.path[i][0], item.path[i][1]);
-        }
-        ctx.strokeStyle = item.color;
-        ctx.lineWidth = item.size;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        ctx.stroke();
-      } else if (item.type === 'shape') {
-        drawShape(item);
-      }
-    }
-    if (previewShape) drawShape(previewShape);
-  }
-
-  function drawShape(item) {
-    ctx.strokeStyle = item.color;
-    ctx.lineWidth = item.size;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.setLineDash(item.preview ? [5, 5] : []);
-    const [x1, y1] = item.start;
-    const [x2, y2] = item.end;
-    ctx.beginPath();
-    if (item.shape === 'line') {
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-    } else if (item.shape === 'rect') {
-      ctx.rect(x1, y1, x2 - x1, y2 - y1);
-    } else if (item.shape === 'circle') {
-      const r = Math.hypot(x2 - x1, y2 - y1);
-      ctx.arc(x1, y1, r, 0, Math.PI * 2);
-    } else if (item.shape === 'triangle') {
-      ctx.moveTo(x1, y2);
-      ctx.lineTo((x1 + x2) / 2, y1);
-      ctx.lineTo(x2, y2);
-      ctx.closePath();
-    } else if (item.shape === 'cube') {
-      ctx.rect(x1, y1, x2 - x1, y2 - y1);
-      ctx.moveTo(x1 + 20, y1 - 20);
-      ctx.rect(x1 + 20, y1 - 20, x2 - x1, y2 - y1);
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x1 + 20, y1 - 20);
-      ctx.moveTo(x2, y1);
-      ctx.lineTo(x2 + 20, y1 - 20);
-      ctx.moveTo(x2, y2);
-      ctx.lineTo(x2 + 20, y2 - 20);
-      ctx.moveTo(x1, y2);
-      ctx.lineTo(x1 + 20, y2 - 20);
-    } else if (item.shape === 'sphere') {
-      const r = Math.hypot(x2 - x1, y2 - y1);
-      ctx.arc(x1, y1, r, 0, Math.PI * 2);
-      ctx.moveTo(x1 - r, y1);
-      ctx.ellipse(x1, y1, r, r / 2, 0, 0, Math.PI * 2);
-    }
-    ctx.stroke();
-    ctx.setLineDash([]);
-  }
-
-  function shapeStart(x, y) {
-    shapeStartPoint = [x, y];
-  }
-
-  function shapeEnd(x, y) {
-    if (!shapeStartPoint) return;
-    const shape = {
-      type: 'shape',
-      shape: currentShape,
-      start: shapeStartPoint,
-      end: [x, y],
-      color: penColor,
-      size: penSize
-    };
-    strokes.push(shape);
-    redoStack = []; // ✅ Clear redo stack on new shape
-    shapeStartPoint = null;
-    previewShape = null;
-    currentShape = null;
-    document.getElementById('shape-picker').style.display = 'none';
-    redrawStrokes();
-  }
-
-  function handleDown(x, y) {
-    if (isEraser) eraseAt(x, y);
-    else if (currentShape) shapeStart(x, y);
-    else startDraw(x, y);
-  }
-
-  function handleMove(x, y) {
-    if (isEraser) return;
-    if (currentShape && shapeStartPoint) {
-      previewShape = {
-        type: 'shape', shape: currentShape,
-        start: shapeStartPoint,
-        end: [x, y],
-        color: penColor,
-        size: penSize,
-        preview: true
-      };
-      redrawStrokes();
-    } else if (drawing) draw(x, y);
-  }
-
-  function handleUp(e) {
-    if (currentShape && shapeStartPoint) shapeEnd(...getEventPos(e));
-    else endDraw();
-  }
-
-  canvas.addEventListener('mousedown', e => handleDown(...getEventPos(e)));
-  canvas.addEventListener('mousemove', e => handleMove(...getEventPos(e)));
-  canvas.addEventListener('mouseup', handleUp);
-  canvas.addEventListener('touchstart', e => handleDown(...getEventPos(e)), { passive: false });
-  canvas.addEventListener('touchmove', e => handleMove(...getEventPos(e)), { passive: false });
-  canvas.addEventListener('touchend', handleUp);
-
-  document.getElementById('pen-toggle').onclick = () => {
-    isPenEnabled = !isPenEnabled;
-    isEraser = false;
-    canvas.style.pointerEvents = isPenEnabled ? 'auto' : 'none';
-  };
-
-  document.getElementById('eraser').onclick = () => {
-    isEraser = true;
-    isPenEnabled = true;
-    canvas.style.pointerEvents = 'auto';
-  };
-
-  document.getElementById('clear-all').onclick = () => {
-    strokes = [];
-    redoStack = [];
-    redrawStrokes();
-  };
-
-  document.getElementById('undo').onclick = () => {
-    if (strokes.length > 0) {
-      const last = strokes.pop();
-      redoStack.push(last);
-      redrawStrokes();
-    }
-  };
-
-  document.getElementById('redo').onclick = () => {
-    if (redoStack.length > 0) {
-      const restored = redoStack.pop();
-      strokes.push(restored);
-      redrawStrokes();
-    }
-  };
-
-  document.getElementById('pen-color').onchange = e => penColor = e.target.value;
-  document.getElementById('pen-size').onchange = e => penSize = parseInt(e.target.value);
-
-  document.getElementById('shape-toggle').onclick = () => {
-    const picker = document.getElementById('shape-picker');
-    picker.style.display = (picker.style.display === 'none' || picker.style.display === '') ? 'flex' : 'none';
-  };
-
-  document.getElementById('shape-close').onclick = () => {
-    document.getElementById('shape-picker').style.display = 'none';
-  };
-
-  document.querySelectorAll('.shape-option').forEach(btn => {
-    btn.onclick = () => {
-      currentShape = btn.dataset.shape;
-      document.getElementById('shape-picker').style.display = 'none';
-      canvas.style.pointerEvents = 'auto';
-    };
-  });
-</script>
-
   </head>
 
   <body>
@@ -2331,105 +2162,859 @@ data-background-video-loop          >        </section><section
 
     <!-- To include plugins, see: https://revealjs.com/plugins/ -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/notes/notes.min.js"></script><!-- <script src="index.js"></script> -->
-    <div id="controls-container">
-      <div id="stopwatch-display">00:00:00</div>
-      <button class="control-btn" id="playPauseBtn">▶</button>
-      <button class="control-btn" id="resetBtn">⟳</button>
-      <button class="control-btn" id="fullscreenBtn">⛶</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/notes/notes.min.js"></script><!-- <script src="index.js"></script> -->
+  <div id="controls-container">
+    <div id="stopwatch-display">00:00:00</div>
+    <button class="control-btn" id="playPauseBtn">▶</button>
+    <button class="control-btn" id="resetBtn">⟳</button>
+    <button class="control-btn" id="fullscreenBtn">⛶</button>
+</div>
+
+<div id="clock-container">
+    <div id="clock-display"></div>
+    <button id="clock-btn">🕒</button>
+</div>
+
+  <div class="drawing-tools collapsed">
+    <button class="tool-btn" id="toggleDrawing" title="Pen"><i class="fas fa-pen"></i></button>
+    <div class="tools-panel">
+      <div class="tool-section">
+        <div class="eraser-controls">
+          <input type="range" class="thickness-slider" id="eraserSize" min="5" max="50" value="20" title="Eraser Size">
+        </div>
+        <button class="tool-btn" id="eraser" title="Eraser"><i class="fas fa-eraser"></i></button>
+        <div class="fill-controls">
+          <input type="range" class="thickness-slider" id="fillOpacity" min="0" max="100" value="100" title="Fill Opacity">
+          <input type="color" class="color-picker" id="fillColor" value="#ffffff" title="Fill Color">
+        </div>
+        <button class="tool-btn" id="fill" title="Fill"><i class="fas fa-fill-drip"></i></button>
+      </div>
+      
+      <div class="tool-section">
+        <button class="tool-btn" data-shape="line" title="Line">━</button>
+        <button class="tool-btn" data-shape="arrow" title="Arrow">→</button>
+        <button class="tool-btn" data-shape="dashedLine" title="Dashed Line">┄</button>
+      </div>
+      
+      <div class="tool-section">
+        <button class="tool-btn" data-shape="rect" title="Rectangle">□</button>
+        <button class="tool-btn" data-shape="circle" title="Circle">○</button>
+        <button class="tool-btn" data-shape="ellipse" title="Ellipse">⬭</button>
+      </div>
+      
+      <div class="tool-section">
+        <button class="tool-btn" data-shape="cube" title="Cube">⬚</button>
+        <button class="tool-btn" data-shape="cylinder" title="Cylinder">⌭</button>
+        <button class="tool-btn" data-shape="cone" title="Cone">△</button>
+        <button class="tool-btn" data-shape="sphere" title="Sphere">⚪</button>
+      </div>
+      
+      <div class="tool-section">
+        <input type="color" class="color-picker" id="penColor" value="#ffffff" title="Line Color">
+        <input type="range" class="thickness-slider" id="penSize" min="1" max="20" value="2">
+      </div>
+      
+      <div class="tool-section">
+        <button class="tool-btn" id="undo" title="Undo"><i class="fas fa-undo"></i></button>
+        <button class="tool-btn" id="redo" title="Redo"><i class="fas fa-redo"></i></button>
+        <button class="tool-btn" id="clear" title="Clear All"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
   </div>
 
-  <div id="clock-container">
-      <div id="clock-display"></div>
-      <button id="clock-btn">🕒</button>
-  </div>
-    <script>
-      const controls = document.getElementById('controls-container');
-      const display = document.getElementById('stopwatch-display');
-      const playPauseBtn = document.getElementById('playPauseBtn');
-      const resetBtn = document.getElementById('resetBtn');
-      const fullscreenBtn = document.getElementById('fullscreenBtn');
+  <canvas id="drawing-canvas"></canvas>
 
-      let stopwatch;
-      let isRunning = false;
-      let time = 0;
+  <!-- Replace Font Awesome kit with CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    const controls = document.getElementById('controls-container');
+    const display = document.getElementById('stopwatch-display');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
 
-      function formatTime(ms) {
-          const hours = Math.floor(ms / 3600000);
-          const minutes = Math.floor((ms % 3600000) / 60000);
-          const seconds = Math.floor((ms % 60000) / 1000);
-          return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    let stopwatch;
+    let isRunning = false;
+    let time = 0;
+
+    function formatTime(ms) {
+        const hours = Math.floor(ms / 3600000);
+        const minutes = Math.floor((ms % 3600000) / 60000);
+        const seconds = Math.floor((ms % 60000) / 1000);
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    playPauseBtn.addEventListener('click', () => {
+        if (!isRunning) {
+            display.style.display = 'block';
+            controls.classList.add('active');
+            isRunning = true;
+            playPauseBtn.textContent = '⏸';
+            const startTime = Date.now() - time;
+            stopwatch = setInterval(() => {
+                time = Date.now() - startTime;
+                display.textContent = formatTime(time);
+            }, 1000);
+        } else {
+            clearInterval(stopwatch);
+            isRunning = false;
+            playPauseBtn.textContent = '▶';
+        }
+    });
+
+    resetBtn.addEventListener('click', () => {
+        clearInterval(stopwatch);
+        isRunning = false;
+        time = 0;
+        display.style.display = 'none';
+        controls.classList.remove('active');
+        playPauseBtn.textContent = '▶';
+    });
+
+    fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+            fullscreenBtn.textContent = "↙";
+        } else {
+            document.exitFullscreen();
+            fullscreenBtn.textContent = "⛶";
+        }
+    });
+
+    const clockContainer = document.getElementById('clock-container');
+    const clockBtn = document.getElementById('clock-btn');
+    const clockDisplay = document.getElementById('clock-display');
+    let isClockVisible = false;
+
+    function updateTime() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
+        clockDisplay.textContent = time;
+    }
+
+    clockBtn.addEventListener('click', () => {
+        isClockVisible = !isClockVisible;
+        clockDisplay.style.display = isClockVisible ? 'block' : 'none';
+        clockContainer.classList.toggle('active', isClockVisible);
+        if (isClockVisible) {
+            updateTime();
+        }
+    });
+
+    // Update time every minute
+    setInterval(() => {
+        if (isClockVisible) {
+            updateTime();
+        }
+    }, 60000);
+
+    // Drawing functionality
+    const canvas = document.getElementById('drawing-canvas');
+    const ctx = canvas.getContext('2d');
+    const toggleDrawing = document.getElementById('toggleDrawing');
+    const shapesBtn = document.getElementById('shapes');
+    const shapesPanel = document.getElementById('shapesPanel');
+    let isDrawing = false;
+    let isDrawingEnabled = false;
+    let currentTool = 'pen';
+    let fillActive = false; // Add this line
+    let drawingHistory = [];
+    let redoHistory = [];
+    
+    function initializeDrawing() {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      
+      ctx.scale(dpr, dpr);
+      
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      // Add this to preserve drawing quality
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+    }
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      restoreCanvasState();
+    }
+
+    function restoreCanvasState() {
+      if (drawingHistory.length > 0) {
+        const img = new Image();
+        img.src = drawingHistory[drawingHistory.length - 1];
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+      }
+    }
+
+    window.addEventListener('load', () => {
+      initializeDrawing();
+      saveDrawingState();
+    });
+
+    window.addEventListener('resize', () => {
+      initializeDrawing();
+      restoreCanvasState();
+    });
+
+    Reveal.addEventListener('slidechanged', () => {
+      if (canvas) {
+        initializeDrawing();
+        restoreCanvasState();
+      }
+    });
+
+    let lastX = 0;
+    let lastY = 0;
+
+    toggleDrawing.addEventListener('click', () => {
+      isDrawingEnabled = !isDrawingEnabled;
+      canvas.classList.toggle('active');
+      toggleDrawing.classList.toggle('active');
+      
+      const drawingTools = document.querySelector('.drawing-tools');
+      if (isDrawingEnabled) {
+        drawingTools.classList.remove('collapsed');
+        canvas.style.pointerEvents = 'auto';
+        currentTool = 'pen';
+      } else {
+        drawingTools.classList.add('collapsed');
+        canvas.style.pointerEvents = 'none';
+        currentTool = null;
+        document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+      }
+    });
+
+    document.querySelectorAll('[data-shape]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!isDrawingEnabled) {
+          isDrawingEnabled = true;
+          canvas.classList.add('active');
+        }
+        currentTool = btn.dataset.shape;
+        document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    function getCanvasCoordinates(e) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+      if (!isDrawingEnabled) return;
+      e.preventDefault();
+      
+      const coords = getCanvasCoordinates(e);
+      if (currentTool === 'pen') {
+        isDrawing = true;
+        [lastX, lastY] = [coords.x, coords.y];
+      } else if (currentTool === 'eraser') {
+        isDrawing = true;
+        [lastX, lastY] = [coords.x, coords.y];
+      } else if (currentTool) {
+        isDrawingShape = true;
+        [startX, startY] = [coords.x, coords.y];
+        drawingHistory.push(canvas.toDataURL());
+      }
+    });
+
+    canvas.addEventListener('touchstart', (e) => {
+      if (!isDrawingEnabled) return;
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent('mousedown', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (!isDrawingEnabled) return;
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent('mousemove', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener('touchend', (e) => {
+      if (!isDrawingEnabled) return;
+      const mouseEvent = new MouseEvent('mouseup', {});
+      canvas.dispatchEvent(mouseEvent);
+    });
+
+    function drawTemp(drawFn) {
+      if (drawingHistory.length > 0) {
+        const img = new Image();
+        img.src = drawingHistory[drawingHistory.length - 1];
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          drawFn();
+        };
+      } else {
+        drawFn();
+      }
+    }
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!isDrawingEnabled) return;
+
+      const lastDrawing = drawingHistory[drawingHistory.length - 1];
+      
+      if (currentTool === 'pen' && isDrawing) {
+        draw(e);
+      } else if (currentTool === 'eraser') {
+        const coords = getCanvasCoordinates(e);
+        const eraserSize = document.getElementById('eraserSize').value;
+
+        if (isDrawing) {
+          ctx.globalCompositeOperation = 'destination-out';
+          ctx.beginPath();
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(coords.x, coords.y);
+          ctx.lineWidth = eraserSize;
+          ctx.lineCap = 'round';
+          ctx.stroke();
+          ctx.globalCompositeOperation = 'source-over';
+          
+          // Save after erasing
+          if (isDrawing) {
+            saveDrawingState();
+          }
+        }
+
+        [lastX, lastY] = [coords.x, coords.y];
+      } else if (isDrawingShape && currentTool) {
+        const coords = getCanvasCoordinates(e);
+        drawTemp(() => {
+          ctx.beginPath();
+          ctx.strokeStyle = document.getElementById('penColor').value;
+          applyFillStyle();
+          ctx.lineWidth = document.getElementById('penSize').value;
+
+          switch(currentTool) {
+            case 'line':
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(coords.x, coords.y);
+              break;
+            case 'rect':
+              ctx.rect(startX, startY, coords.x - startX, coords.y - startY);
+              break;
+            case 'square':
+              const size = Math.max(Math.abs(coords.x - startX), Math.abs(coords.y - startY));
+              ctx.rect(startX, startY, size, size);
+              break;
+            case 'circle':
+              const r = Math.sqrt(Math.pow(coords.x - startX, 2) + Math.pow(coords.y - startY, 2));
+              ctx.arc(startX, startY, r, 0, 2 * Math.PI);
+              break;
+            case 'triangle':
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(coords.x, coords.y);
+              ctx.lineTo(startX - (coords.x - startX), coords.y);
+              ctx.closePath();
+              break;
+            case 'ellipse':
+              const rx = Math.abs(coords.x - startX) / 2;
+              const ry = Math.abs(coords.y - startY) / 2;
+              const cx = (startX + coords.x) / 2;
+              const cy = (startY + coords.y) / 2;
+              ctx.ellipse(cx, cy, rx, ry, 0, 0, 2 * Math.PI);
+              break;
+            case 'dashedLine':
+              ctx.setLineDash([10, 10]);
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(coords.x, coords.y);
+              ctx.stroke();
+              ctx.setLineDash([]);
+              return;
+            case 'arrow':
+              const dx = coords.x - startX;
+              const dy = coords.y - startY;
+              const angle = Math.atan2(dy, dx);
+              const headlen = 20;
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(coords.x, coords.y);
+              ctx.moveTo(coords.x, coords.y);
+              ctx.lineTo(coords.x - headlen * Math.cos(angle - Math.PI/6),
+                       coords.y - headlen * Math.sin(angle - Math.PI/6));
+              ctx.moveTo(coords.x, coords.y);
+              ctx.lineTo(coords.x - headlen * Math.cos(angle + Math.PI/6),
+                       coords.y - headlen * Math.sin(angle + Math.PI/6));
+              break;
+            case 'sphere':
+            case 'cube':
+            case 'cylinder':
+            case 'cone':
+              window[`draw${currentTool.charAt(0).toUpperCase() + currentTool.slice(1)}`](startX, startY, coords.x, coords.y);
+              break;
+          }
+          
+          if (applyFillStyle()) {
+            ctx.fill();
+          }
+          ctx.stroke();
+        });
+      }
+    });
+
+    // Add mouseleave handler to clear preview
+    canvas.addEventListener('mouseleave', () => {
+      if (currentTool === 'eraser' && !isDrawing && drawingHistory.length > 0) {
+        const img = new Image();
+        img.src = drawingHistory[drawingHistory.length - 1];
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+        };
+      }
+    });
+
+    canvas.addEventListener('mouseup', (e) => {
+      if (isDrawingShape) {
+        const coords = getCanvasCoordinates(e);
+        ctx.beginPath();
+        ctx.strokeStyle = document.getElementById('penColor').value;
+        applyFillStyle();
+        ctx.lineWidth = document.getElementById('penSize').value;
+
+        switch(currentTool) {
+          case 'line':
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(coords.x, coords.y);
+            break;
+          case 'rect':
+            ctx.rect(startX, startY, coords.x - startX, coords.y - startY);
+            break;
+          case 'square':
+            const size = Math.max(Math.abs(coords.x - startX), Math.abs(coords.y - startY));
+            ctx.closePath();
+            break;
+          case 'ellipse':
+            const rx = Math.abs(coords.x - startX) / 2;
+            const ry = Math.abs(coords.y - startY) / 2;
+            const cx = (startX + coords.x) / 2;
+            const cy = (startY + coords.y) / 2;
+            ctx.ellipse(cx, cy, rx, ry, 0, 0, 2 * Math.PI);
+            break;
+          case 'dashedLine':
+            ctx.setLineDash([10, 10]);
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(coords.x, coords.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            isDrawingShape = false;
+            saveDrawingState();
+            return;
+          case 'arrow':
+            const dx = coords.x - startX;
+            const dy = coords.y - startY;
+            const angle = Math.atan2(dy, dx);
+            const headlen = 20;
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(coords.x, coords.y);
+            ctx.moveTo(coords.x, coords.y);
+            ctx.lineTo(coords.x - headlen * Math.cos(angle - Math.PI/6),
+                     coords.y - headlen * Math.sin(angle - Math.PI/6));
+            ctx.moveTo(coords.x, coords.y);
+            ctx.lineTo(coords.x - headlen * Math.cos(angle + Math.PI/6),
+                     coords.y - headlen * Math.sin(angle + Math.PI/6));
+            break;
+          case 'sphere':
+          case 'cube':
+          case 'cylinder':
+          case 'cone':
+            window[`draw${currentTool.charAt(0).toUpperCase() + currentTool.slice(1)}`](startX, startY, coords.x, coords.y);
+            break;
+        }
+
+        if (applyFillStyle()) {
+          ctx.fill();
+        }
+        ctx.stroke();
+        
+        isDrawingShape = false;
+        saveDrawingState();
+
+        // Switch back to pen tool after drawing shape
+        if (currentTool && currentTool !== 'pen' && currentTool !== 'eraser') {
+          currentTool = 'pen';
+          document.querySelectorAll('[data-shape]').forEach(btn => btn.classList.remove('active'));
+        }
+      } else {
+        stopDrawing();
+      }
+    });
+
+    function startDrawing(e) {
+      if (!isDrawingEnabled) return;
+      isDrawing = true;
+      const coords = getCanvasCoordinates(e);
+      [lastX, lastY] = [coords.x, coords.y];
+    }
+
+    function draw(e) {
+      if (!isDrawing || !isDrawingEnabled) return;
+      
+      const coords = getCanvasCoordinates(e);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(coords.x, coords.y);
+      ctx.strokeStyle = document.getElementById('penColor').value;
+      ctx.lineWidth = document.getElementById('penSize').value;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      
+      [lastX, lastY] = [coords.x, coords.y];
+    }
+
+    function stopDrawing() {
+      if (!isDrawing) return;
+      isDrawing = false;
+      saveDrawingState();
+    }
+
+    function saveDrawingState() {
+      const dpr = window.devicePixelRatio || 1;
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCanvas.width = canvas.width;
+      tempCanvas.height = canvas.height;
+      
+      // Draw current canvas state to temp canvas
+      tempCtx.drawImage(canvas, 0, 0);
+      
+      drawingHistory.push(tempCanvas.toDataURL());
+      redoHistory = [];
+      tempCanvas.remove();
+    }
+
+    document.getElementById('undo').addEventListener('click', () => {
+      if (drawingHistory.length > 0) {
+        redoHistory.push(canvas.toDataURL());
+        const img = new Image();
+        img.src = drawingHistory.pop();
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+        };
+      }
+    });
+
+    document.getElementById('redo').addEventListener('click', () => {
+      if (redoHistory.length > 0) {
+        drawingHistory.push(canvas.toDataURL());
+        const img = new Image();
+        img.src = redoHistory.pop();
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+        };
+      }
+    });
+
+    document.getElementById('eraser').addEventListener('click', () => {
+      const wasEraser = currentTool === 'eraser';
+      currentTool = wasEraser ? 'pen' : 'eraser';
+      const eraserBtn = document.getElementById('eraser');
+      eraserBtn.classList.toggle('active');
+      eraserBtn.previousElementSibling.classList.toggle('active');
+    });
+
+    let startX, startY;
+    let isDrawingShape = false;
+
+    function drawShape(shape, e) {
+      const coords = getCanvasCoordinates(e);
+      const currentX = coords.x;
+      const currentY = coords.y;
+      
+      if (isDrawingShape) {
+        const img = new Image();
+        img.src = drawingHistory[drawingHistory.length - 1];
+        img.onload = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+          
+          ctx.beginPath();
+          ctx.strokeStyle = document.getElementById('penColor').value;
+          applyFillStyle();
+          ctx.lineWidth = document.getElementById('penSize').value;
+          
+          switch(shape) {
+            case 'cube':
+              drawCube(startX, startY, currentX, currentY);
+              break;
+            case 'sphere':
+              drawSphere(startX, startY, currentX, currentY);
+              break;
+            case 'cylinder':
+              drawCylinder(startX, startY, currentX, currentY);
+              break;
+            case 'cone':
+              drawCone(startX, startY, currentX, currentY);
+              break;
+            case 'square':
+              const size = Math.abs(currentX - startX);
+              ctx.rect(startX, startY, size, size);
+              break;
+            case 'arrow':
+              drawArrow(startX, startY, currentX, currentY);
+              break;
+            case 'line':
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(currentX, currentY);
+              break;
+            case 'rect':
+              ctx.rect(startX, startY, currentX - startX, currentY - startY);
+              break;
+            case 'circle':
+              const radius = Math.sqrt(Math.pow(currentX - startX, 2) + Math.pow(currentY - startY, 2));
+              ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+              break;
+            case 'triangle':
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(currentX, currentY);
+              ctx.lineTo(startX - (currentX - startX), currentY);
+              ctx.closePath();
+              break;
+            case 'ellipse':
+              const rx = Math.abs(currentX - startX) / 2;
+              const ry = Math.abs(currentY - startY) / 2;
+              const cx = (startX + currentX) / 2;
+              const cy = (startY + currentY) / 2;
+              ctx.ellipse(cx, cy, rx, ry, 0, 0, 2 * Math.PI);
+              break;
+            case 'dashedLine':
+              ctx.setLineDash([10, 10]);
+              ctx.moveTo(startX, startY);
+              ctx.lineTo(currentX, currentY);
+              ctx.stroke();
+              ctx.setLineDash([]);
+              return;
+          }
+          
+          if (applyFillStyle()) {
+            ctx.fill();
+          }
+          ctx.stroke();
+        };
+      }
+    }
+
+    function drawShapePreview(shape, e) {
+      const coords = getCanvasCoordinates(e);
+      ctx.beginPath();
+      ctx.strokeStyle = document.getElementById('penColor').value;
+      applyFillStyle();
+      ctx.lineWidth = document.getElementById('penSize').value;
+
+      switch(shape) {
+        case 'dashedLine':
+          ctx.setLineDash([10, 10]);
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(coords.x, coords.y);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          return;
+        case 'cube':
+          drawCube(startX, startY, coords.x, coords.y);
+          break;
+        case 'cylinder':
+          drawCylinder(startX, startY, coords.x, coords.y);
+          break;
+        case 'sphere':
+          drawSphere(startX, startY, coords.x, coords.y);
+          break;
+        case 'cone':
+          drawCone(startX, startY, coords.x, coords.y);
+          break;
       }
 
-      playPauseBtn.addEventListener('click', () => {
-          if (!isRunning) {
-              display.style.display = 'block';
-              controls.classList.add('active');
-              isRunning = true;
-              playPauseBtn.textContent = '⏸';
-              const startTime = Date.now() - time;
-              stopwatch = setInterval(() => {
-                  time = Date.now() - startTime;
-                  display.textContent = formatTime(time);
-              }, 1000);
-          } else {
-              clearInterval(stopwatch);
-              isRunning = false;
-              playPauseBtn.textContent = '▶';
-          }
-      });
-
-      resetBtn.addEventListener('click', () => {
-          clearInterval(stopwatch);
-          isRunning = false;
-          time = 0;
-          display.style.display = 'none';
-          controls.classList.remove('active');
-          playPauseBtn.textContent = '▶';
-      });
-
-      fullscreenBtn.addEventListener('click', () => {
-          if (!document.fullscreenElement) {
-              document.documentElement.requestFullscreen();
-              fullscreenBtn.textContent = "↙";
-          } else {
-              document.exitFullscreen();
-              fullscreenBtn.textContent = "⛶";
-          }
-      });
-
-      const clockContainer = document.getElementById('clock-container');
-      const clockBtn = document.getElementById('clock-btn');
-      const clockDisplay = document.getElementById('clock-display');
-      let isClockVisible = false;
-
-      function updateTime() {
-          const now = new Date();
-          const time = now.toLocaleTimeString('en-US', {
-              hour: '2-digit',
-              minute: '2-digit',
-              hour12: false
-          });
-          clockDisplay.textContent = time;
+      if (applyFillStyle()) {
+        ctx.fill();
       }
+      ctx.stroke();
+    }
 
-      clockBtn.addEventListener('click', () => {
-          isClockVisible = !isClockVisible;
-          clockDisplay.style.display = isClockVisible ? 'block' : 'none';
-          clockContainer.classList.toggle('active', isClockVisible);
-          if (isClockVisible) {
-              updateTime();
-          }
-      });
+    function drawCube(x1, y1, x2, y2) {
+      const width = x2 - x1;
+      const height = y2 - y1;
+      const depth = Math.abs(width) * 0.3;
+      
+      ctx.beginPath();
+      ctx.rect(x1, y1, width, height);
+      ctx.stroke();
 
-      // Update time every minute
-      setInterval(() => {
-          if (isClockVisible) {
-              updateTime();
-          }
-      }, 60000);
-    </script>
+      ctx.beginPath();
+      ctx.setLineDash([5, 5]);
+      ctx.rect(x1 + depth, y1 - depth, width, height);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x1 + depth, y1 - depth);
+      
+      ctx.moveTo(x1 + width, y1);
+      ctx.lineTo(x1 + width + depth, y1 - depth);
+      
+      ctx.moveTo(x1 + width, y1 + height);
+      ctx.lineTo(x1 + width + depth, y1 + height - depth);
+      
+      ctx.moveTo(x1, y1 + height);
+      ctx.lineTo(x1 + depth, y1 + height - depth);
+      ctx.stroke();
+    }
+
+    function drawCylinder(x1, y1, x2, y2) {
+      const width = Math.abs(x2 - x1);
+      const height = y2 - y1;
+      
+      ctx.beginPath();
+      ctx.moveTo(x1, y1 + width * 0.1);
+      ctx.lineTo(x1, y2 - width * 0.1);
+      ctx.moveTo(x2, y1 + width * 0.1);
+      ctx.lineTo(x2, y2 - width * 0.1);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.ellipse(x1 + width/2, y1 + width * 0.1, width/2, width * 0.1, 0, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.ellipse(x1 + width/2, y2 - width * 0.1, width/2, width * 0.1, 0, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1 + width * 0.1);
+      ctx.bezierCurveTo(x1, y2 - width * 0.1, x1, y2 - width * 0.1, x1, y2 - width * 0.1);
+      ctx.moveTo(x2, y1 + width * 0.1);
+      ctx.bezierCurveTo(x2, y2 - width * 0.1, x2, y2 - width * 0.1, x2, y2 - width * 0.1);
+      ctx.stroke();
+    }
+
+    function drawSphere(x1, y1, x2, y2) {
+      const width = Math.abs(x2 - x1);
+      const height = Math.abs(y2 - y1);
+      const centerX = (x1 + x2) / 2;
+      const centerY = (y1 + y2) / 2;
+      const radius = Math.min(width, height) / 2;
+
+      // Main outer circle - solid line
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      // Single horizontal dashed ellipse for 3D effect
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.ellipse(centerX, centerY, radius, radius * 0.4, 0, 0, 2 * Math.PI);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    function drawCone(x1, y1, x2, y2) {
+      const width = Math.abs(x2 - x1);
+      const height = y2 - y1;
+      const centerX = (x1 + x2) / 2;
+
+      ctx.beginPath();
+      ctx.ellipse(centerX, y2, width/2, width * 0.1, 0, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(centerX, y1);
+      ctx.lineTo(x1, y2);
+      ctx.lineTo(x2, y2);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.ellipse(centerX, y2, width/2, width * 0.1, 0, Math.PI, 2 * Math.PI);
+      ctx.stroke();
+    }
+
+    document.getElementById('fill').addEventListener('click', function() {
+      fillActive = !fillActive; // Toggle fill state
+      this.classList.toggle('active');
+      this.previousElementSibling.classList.toggle('active');
+      const drawingTools = document.querySelector('.drawing-tools');
+      drawingTools.classList.remove('collapsed');
+    });
+
+    function hexToRgb(hex) {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : {r: 255, g: 255, b: 255};
+    }
+
+    function applyFillStyle() {
+      if (fillActive) { // Changed from checking classList
+        const color = document.getElementById('fillColor').value;
+        const opacity = document.getElementById('fillOpacity').value / 100;
+        const rgb = hexToRgb(color);
+        ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+        return true;
+      }
+      ctx.fillStyle = 'transparent';
+      return false;
+    }
+
+    document.getElementById('clear').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      saveDrawingState();
+    });
+
+    Reveal.addEventListener('slidechanged', function() {
+      if (canvas) {
+        resizeCanvas();
+      }
+    });
+
+    function handleClickPassthrough(e) {
+      if (!isDrawingEnabled) {
+        const element = document.elementFromPoint(e.clientX, e.clientY);
+        if (element && element !== canvas) {
+          element.click();
+        }
+      }
+    }
+
+    canvas.addEventListener('click', handleClickPassthrough);
+  </script>
     <script>
       Reveal.initialize({
 plugins: [ RevealMarkdown, RevealNotes ],        // The "normal" size of the presentation, aspect ratio will
