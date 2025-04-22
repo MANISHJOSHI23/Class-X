@@ -2344,6 +2344,13 @@ data-background-video-loop          >        </section><section
       // Add this to preserve drawing quality
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
+
+      // Add touch-action CSS property
+      canvas.style.touchAction = 'none';
+      
+      // Enable touch events
+      canvas.style.msTouchAction = 'none';
+      canvas.style.webkitTouchCallout = 'none';
     }
 
     function resizeCanvas() {
@@ -2446,12 +2453,114 @@ data-background-video-loop          >        </section><section
     canvas.addEventListener('touchstart', (e) => {
       if (!isDrawingEnabled) return;
       e.preventDefault();
+      
       const touch = e.touches[0];
-      const mouseEvent = new MouseEvent('mousedown', {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas.dispatchEvent(mouseEvent);
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      [lastX, lastY] = [
+        (touch.clientX - rect.left) * scaleX,
+        (touch.clientY - rect.top) * scaleY
+      ];
+      
+      isDrawing = true;
+      
+      // Handle shape drawing start
+      if (currentTool && currentTool !== 'pen' && currentTool !== 'eraser') {
+        isDrawingShape = true;
+        [startX, startY] = [lastX, lastY];
+        drawingHistory.push(canvas.toDataURL());
+      }
+    }, { passive: false });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (!isDrawingEnabled || !isDrawing) return;
+      e.preventDefault();
+      
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      const currentX = (touch.clientX - rect.left) * scaleX;
+      const currentY = (touch.clientY - rect.top) * scaleY;
+      
+      if (currentTool === 'pen') {
+        // Smooth line drawing
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        
+        // Use quadratic curve for smoother lines
+        const midPoint = {
+          x: (lastX + currentX) / 2,
+          y: (lastY + currentY) / 2
+        };
+        ctx.quadraticCurveTo(lastX, lastY, midPoint.x, midPoint.y);
+        
+        ctx.strokeStyle = document.getElementById('penColor').value;
+        ctx.lineWidth = document.getElementById('penSize').value;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+        
+        [lastX, lastY] = [currentX, currentY];
+      } else if (currentTool === 'eraser') {
+        // Optimized eraser
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        ctx.arc(currentX, currentY, 
+          document.getElementById('eraserSize').value / 2, 
+          0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalCompositeOperation = 'source-over';
+        
+        [lastX, lastY] = [currentX, currentY];
+      } else if (isDrawingShape) {
+        // Handle shape drawing
+        drawShape(currentTool, {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+      }
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', (e) => {
+      if (!isDrawingEnabled) return;
+      e.preventDefault();
+      
+      if (isDrawingShape) {
+        const touch = e.changedTouches[0];
+        drawShape(currentTool, {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        isDrawingShape = false;
+      }
+      
+      isDrawing = false;
+      saveDrawingState();
+    }, { passive: false });
+
+    // Prevent multiple touches
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Add palm rejection optimization
+    let touchTimeout;
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 1) return;
+      
+      clearTimeout(touchTimeout);
+      touchTimeout = setTimeout(() => {
+        if (isDrawing) {
+          isDrawing = false;
+          saveDrawingState();
+        }
+      }, 100);
     });
 
     canvas.addEventListener('touchmove', (e) => {
