@@ -1,0 +1,639 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Human Eye and Colurful World PPT - Manish Joshi</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/theme/black.min.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <style>
+      #controls-container {
+          position: fixed;
+          top: 20px;
+          right: 1%;
+          transform: translateX(-50%);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          opacity: 0.3;
+          transition: opacity 0.3s;
+      }
+
+      #controls-container:hover,
+      #controls-container.active {
+          opacity: 1;
+      }
+
+      .control-btn {
+          padding: 12px;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+          font-size: 20px;
+      }
+
+      .control-btn:hover {
+          background: rgba(0, 0, 0, 0.8);
+      }
+
+      #stopwatch-display {
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          padding: 12px 20px;
+          border-radius: 5px;
+          font-family: monospace;
+          font-size: 24px;
+          display: none;
+      }
+
+      #clock-container {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          opacity: 0.3;
+          transition: opacity 0.3s;
+      }
+
+      #clock-container:hover,
+      #clock-container.active {
+          opacity: 1;
+      }
+
+      #clock-btn {
+          padding: 12px;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+          font-size: 20px;
+      }
+
+      #clock-display {
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          padding: 12px 20px;
+          border-radius: 5px;
+          font-family: monospace;
+          font-size: 24px;
+          display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_bc903a10fcd8dec27562e68fdca80e5a47b46d64683507fe26d41ccc391638b2.mp4"
+data-background-video-muted          >        </section>
+<section data-background-color="black">
+            <div style="text-align:center;">
+              <iframe id="embedded-human" frameBorder="0" style="aspect-ratio: 16/ 9; width: 100%" allowFullScreen="true" loading="lazy" src="https://human.biodigital.com/viewer/?id=6BhV&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=true&ui-audio=true&ui-chapter-list=false&ui-fullscreen=true&ui-help=true&ui-info=true&ui-label-list=true&ui-layers=true&ui-skin-layers=true&ui-loader=circle&ui-media-controls=full&ui-menu=true&ui-nav=true&ui-search=true&ui-tools=true&ui-tutorial=false&ui-undo=true&ui-whiteboard=true&initial.none=true&disable-scroll=false&load-rotate=-20&uaid=M4Y8h&paid=o_222ab7e0"></iframe>
+            </div>
+          </section>
+          <section data-background-color="black">
+            <div style="text-align:center;">
+              <iframe id="embedded-human" frameBorder="0" style="aspect-ratio: 16/ 9; width: 100%" allowFullScreen="true" loading="lazy" src="https://human.biodigital.com/viewer/?id=6BhP&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=true&ui-audio=true&ui-chapter-list=false&ui-fullscreen=true&ui-help=true&ui-info=true&ui-label-list=true&ui-layers=true&ui-skin-layers=true&ui-loader=circle&ui-media-controls=full&ui-menu=true&ui-nav=true&ui-search=true&ui-tools=true&ui-tutorial=false&ui-undo=true&ui-whiteboard=true&initial.none=true&disable-scroll=false&uaid=M4YB3&paid=o_222ab7e0"></iframe>
+            </div>
+          </section>
+<section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_b23168d322985c89e4a3873629cdbdc642082597a9045a278bbb68276d5a318f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_4affd40edd6d1b35d34aec6b0e14e75960c23e81d3ca425c1f08eceb35b62ddc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_0ab42957c66090dce3374a68f81707e85d9edb037dde8bf24606bd91b7bb5eab.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_a17c09c7e880fcb4ec4430c19509a9af63474cc680a3548cbc08e990abb28e95.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_4e45145ddac2562d27b1bbcdec82c076f8e89bb40603a411c1ba733ae3525fd9.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_df00b023e15814dcfcb912e767a7f9884cb07df3d5a457c20f2cbd46e47fe8a0.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_371ffabb736afd7b9a9d022b92617a8ae57c87e5492add4fde9e7b35d2ed266c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_83ceeaf4c3a9508242a39a8f6681c6a06472a240436446003675ef33bdb62145.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_9ee097a8e5d1c3fdc134c3aaef68b6e18c4784eb9089692dc56b051134b5f0cc.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_978d7e3624b83831a61e140f3b2e7c819412936f81d3c8af28f1fec87700944f.mp4"
+data-background-video-loop          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_2719ca3d77a4303f466706b1122ba5f6a1f68e01c0c9254fe6b7fd5b8eb5a785.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_c0caca8e7f524a5cb84c21cd35b0c9c38a9bd1ac23668183273b73b9eeae6645.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_e722ddc5ea643e31ddb554bf6a58815b694c4a8a6705a549cc629b1ca546bf0e.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_6faae4e36455c7d9ab1912ce4e6ea9fb81a9cbca6db1ed0e45b4aeeeef8a9ca3.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s0_302ef4682034601da90ff8eb4ce3d916ef59f0dde785f368c471a913dffb4718.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_c93d43272e4fe1aef036d68e7bd594a62153e37762013557f4e4ab10a4de9f7c.mp4"
+          >        </section>
+          </section>
+          <section data-background-color="black">
+            <div style="text-align:center;">
+              <iframe id="embedded-human" frameBorder="0" style="aspect-ratio: 16/ 9; width: 100%" allowFullScreen="true" loading="lazy" src="https://human.biodigital.com/viewer/?id=6BhR&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=true&ui-audio=true&ui-chapter-list=false&ui-fullscreen=true&ui-help=true&ui-info=false&ui-label-list=true&ui-layers=true&ui-skin-layers=true&ui-loader=circle&ui-media-controls=full&ui-menu=true&ui-nav=true&ui-search=true&ui-tools=true&ui-tutorial=false&ui-undo=true&ui-whiteboard=true&initial.none=true&disable-scroll=false&uaid=M4YC6&paid=o_222ab7e0"></iframe>
+            </div>
+          </section>
+          <section data-background-color="black">
+            <div style="text-align:center;">
+              <iframe id="embedded-human" frameBorder="0" style="aspect-ratio: 16 / 9; width: 100%" allowFullScreen="true" loading="lazy" src="https://human.biodigital.com/viewer/?id=6BhS&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=true&ui-audio=true&ui-chapter-list=false&ui-fullscreen=true&ui-help=true&ui-info=false&ui-label-list=true&ui-layers=true&ui-skin-layers=true&ui-loader=circle&ui-media-controls=full&ui-menu=true&ui-nav=true&ui-search=true&ui-tools=true&ui-tutorial=false&ui-undo=true&ui-whiteboard=true&initial.none=true&disable-scroll=false&uaid=M4YCp&paid=o_222ab7e0"></iframe>
+            </div>
+          </section>
+          <section data-background-color="black">
+            <video controls loop
+                   style="size: contain; display: block; margin: auto;">
+              <source src="Eye_assets/s1_b4da4b6498e71239373301fc78f06b37e3b0907e04ff6fec6933c86e924553de.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video><aside class="notes" data-markdown>Eye</aside>        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_1af91bbe2586107456e69495b39ebe7ee1a5c1526ff5a865f58aeb3128bf10f4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_c2b1cc7b1faf64a0f51c4e593022e085032972c1b7278f777b1002139a3fd236.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_75b2760b6a7e4cf415393efdc9e6795df4e4c454bb69eda6c937aa1f8ddbcaf8.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_9188d61e278393907fa88adbb396da217b303f4fe84963486dd3608cb5465a6f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_ec7e7643102761b98bbbd6f5f102fb163be862925fd2b260564e6c0d43e24e40.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_f3961aa51f3b9f032e19b5475dcac548e519b464e425d2491ebb65de03e9265f.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_0f87268d765d4e2f58d11a14e614e020ae68648803218d9541caddee43604ee4.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_1b14736521be1f318b356b6ac2523125da40e424e6f01d9a0cd8fe1e57727bd2.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_80b861a7de11c34f57f1e41d98d5a073162c6a1a238f39fbadc620580d6fcba7.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_add1dfed814bc7244f1c1226787b74584e66cb3db33de7edbffaa25ed4c4b762.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_3664ba91b26dbf6810aa6ab77c6ffcbfd66b3011576fa6dd854509a08b7a1533.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_b6c1ca07354c3e0409abb1711b2ba13b78ac84cf054246da31a2d4ad4a489f0c.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_ea272c860b5490b8fccaf63fdf4be1c34144ab7b110384e1969d0a954e992502.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_9ea97bf4b637befe13d2d756838dfcf59fce47031a0a961a7f7c37d5ce7a8512.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_5cf8da5654632567fb49ce8ab22fbd299b2dd3930a71d31779ac93d1488b234a.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_47aec5cae81e8a8e357be99b6fb010e14640a7b0a5e8bac79285b775a8bc6186.mp4"
+          >        </section><section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="Eye_assets/s1_a3c7f3c01cec644d5611a00ecf8b80d7d4844d6b4a3f1c8964321018c287772b.mp4"
+          >        </section>
+          <section data-background-color="black">
+            <div style="text-align:center;">
+              <iframe id="embedded-human" frameBorder="0" style="aspect-ratio: 16/ 9; width: 100%" allowFullScreen="true" loading="lazy" src="https://javalab.org/en/iris_and_ciliary_body_en/"></iframe>
+            </div>
+          </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
+
+    <!-- To include plugins, see: https://revealjs.com/plugins/ -->
+
+<!-- <script src="index.js"></script> -->
+    <div id="controls-container">
+      <div id="stopwatch-display">00:00:00</div>
+      <button class="control-btn" id="playPauseBtn">▶</button>
+      <button class="control-btn" id="resetBtn">⟳</button>
+      <button class="control-btn" id="fullscreenBtn">⛶</button>
+  </div>
+
+  <div id="clock-container">
+      <div id="clock-display"></div>
+      <button id="clock-btn">🕒</button>
+  </div>
+    <script>
+      const controls = document.getElementById('controls-container');
+      const display = document.getElementById('stopwatch-display');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+      let stopwatch;
+      let isRunning = false;
+      let time = 0;
+
+      function formatTime(ms) {
+          const hours = Math.floor(ms / 3600000);
+          const minutes = Math.floor((ms % 3600000) / 60000);
+          const seconds = Math.floor((ms % 60000) / 1000);
+          return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+          if (!isRunning) {
+              display.style.display = 'block';
+              controls.classList.add('active');
+              isRunning = true;
+              playPauseBtn.textContent = '⏸';
+              const startTime = Date.now() - time;
+              stopwatch = setInterval(() => {
+                  time = Date.now() - startTime;
+                  display.textContent = formatTime(time);
+              }, 1000);
+          } else {
+              clearInterval(stopwatch);
+              isRunning = false;
+              playPauseBtn.textContent = '▶';
+          }
+      });
+
+      resetBtn.addEventListener('click', () => {
+          clearInterval(stopwatch);
+          isRunning = false;
+          time = 0;
+          display.style.display = 'none';
+          controls.classList.remove('active');
+          playPauseBtn.textContent = '▶';
+      });
+
+      fullscreenBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+              document.documentElement.requestFullscreen();
+              fullscreenBtn.textContent = "↙";
+          } else {
+              document.exitFullscreen();
+              fullscreenBtn.textContent = "⛶";
+          }
+      });
+
+      const clockContainer = document.getElementById('clock-container');
+      const clockBtn = document.getElementById('clock-btn');
+      const clockDisplay = document.getElementById('clock-display');
+      let isClockVisible = false;
+
+      function updateTime() {
+          const now = new Date();
+          const time = now.toLocaleTimeString('en-US', {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false
+          });
+          clockDisplay.textContent = time;
+      }
+
+      clockBtn.addEventListener('click', () => {
+          isClockVisible = !isClockVisible;
+          clockDisplay.style.display = isClockVisible ? 'block' : 'none';
+          clockContainer.classList.toggle('active', isClockVisible);
+          if (isClockVisible) {
+              updateTime();
+          }
+      });
+
+      // Update time every minute
+      setInterval(() => {
+          if (isClockVisible) {
+              updateTime();
+          }
+      }, 60000);
+    </script>
+    <script>
+      Reveal.initialize({
+        // The "normal" size of the presentation, aspect ratio will
+        // be preserved when the presentation is scaled to fit different
+        // resolutions. Can be specified using percentage units.
+        width: '100%',
+        height: '100%',
+
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+        maxScale: 2.0,
+
+        // Display presentation control arrows
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        // - true:    Show slide number
+        // - false:   Hide slide number
+        //
+        // Can optionally be set as a string that specifies the number formatting:
+        // - "h.v":   Horizontal . vertical slide number (default)
+        // - "h/v":   Horizontal / vertical slide number
+        // - "c":   Flattened slide number
+        // - "c/t":   Flattened slide number / total slides
+        //
+        // Alternatively, you can provide a function that returns the slide
+        // number for the current slide. The function should take in a slide
+        // object and return an array with one string [slideNumber] or
+        // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+        slideNumber: false,
+
+        // Can be used to limit the contexts in which the slide number appears
+        // - "all":      Always show the slide number
+        // - "print":    Only when printing to PDF
+        // - "speaker":  Only in the speaker view
+        showSlideNumber: 'all',
+
+        // Use 1 based indexing for # links to match slide number (default is zero
+        // based)
+        hashOneBasedIndex: false,
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: false,
+
+        // Enable support for jump-to-slide navigation shortcuts
+        jumpToSlide: true,
+
+        // Push each slide change to the browser history.  Implies `hash: true`
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Optional function that blocks keyboard events when retuning false
+        //
+        // If you set this to 'focused', we will only capture keyboard events
+        // for embedded decks when they are in focus
+        keyboardCondition: null,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // Changes the behavior of our navigation directions.
+        //
+        // "default"
+        // Left/right arrow keys step between horizontal slides, up/down
+        // arrow keys step between vertical slides. Space key steps through
+        // all slides (both horizontal and vertical).
+        //
+        // "linear"
+        // Removes the up/down arrows. Left/right arrows step through all
+        // slides (both horizontal and vertical).
+        //
+        // "grid"
+        // When this is enabled, stepping left/right from a vertical stack
+        // to an adjacent vertical stack will land you at the same vertical
+        // index.
+        //
+        // Consider a deck with six slides ordered in two vertical stacks:
+        // 1.1    2.1
+        // 1.2    2.2
+        // 1.3    2.3
+        //
+        // If you're on slide 1.3 and navigate right, you will normally move
+        // from 1.3 -> 2.1. If "grid" is used, the same navigation takes you
+        // from 1.3 -> 2.3.
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the question-mark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autolaying embedded media (video/audio/iframe)
+        // - null:   Media will only autoplay if data-autoplay is present
+        // - true:   All media will autoplay, regardless of individual setting
+        // - false:  No media will autoplay, regardless of individual setting
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes
+        // - null:   Iframes with data-src AND data-preload will be loaded when within
+        //           the viewDistance, iframes with only data-src will be loaded when visible
+        // - true:   All iframes with data-src will be loaded when within the viewDistance
+        // - false:  All iframes with data-src will be loaded only when visible
+        preloadIframes: null,
+
+        // Can be used to globally disable auto-animation
+        autoAnimate: true,
+
+        // Optionally provide a custom element matcher that will be
+        // used to dictate which elements we can animate between.
+        autoAnimateMatcher: null,
+
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateEasing: 'ease',
+        autoAnimateDuration: 1.0,
+        autoAnimateUnmatched: true,
+
+        // CSS properties that can be auto-animated. Position & scale
+        // is matched separately so there's no need to include styles
+        // like top/right/bottom/left, width/height or margin.
+        autoAnimateStyles: ['opacity', 'color', 'background-color', 'padding', 'font-size', 'line-height', 'letter-spacing', 'border-width', 'border-color', 'border-radius', 'outline', 'outline-offset'],
+
+        // Controls automatic progression to the next slide
+        // - 0:      Auto-sliding only happens if the data-autoslide HTML attribute
+        //           is present on the current slide or fragment
+        // - 1+:     All slides will progress automatically at the given interval
+        // - false:  No auto-sliding, even if data-autoslide is present
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding (defaults to navigateNext)
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customize each link
+        // individually
+        previewLinks: false,
+
+        // Exposes the reveal.js API through window.postMessage
+        postMessage: true,
+
+        // Dispatches all reveal.js events to the parent window through postMessage
+        postMessageEvents: false,
+
+        // Focuses body when page changes visibility to ensure keyboard shortcuts work
+        focusBodyOnPageVisibilityChange: true,
+
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // The maximum number of pages a single slide can expand onto when printing
+        // to PDF, unlimited by default
+        pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+
+        // Prints each fragment on a separate slide
+        pdfSeparateFragments: true,
+
+        // Offset used to reduce the height of content within exported PDF pages.
+        // This exists to account for environment differences based on how you
+        // print to PDF. CLI printing options, like phantomjs and wkpdf, can end
+        // on precisely the total height of the document whereas in-browser
+        // printing has to end one pixel before.
+        pdfPageHeightOffset: -1,
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000
+      });
+
+    </script>
+
+    
+  </body>
+</html>
